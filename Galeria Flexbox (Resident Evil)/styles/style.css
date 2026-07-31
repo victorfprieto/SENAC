@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Special+Elite&display=swap');
+
+* {
+     margin: 0;
+     padding: 0;
+}
+
+body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #e0e0e0;
+}
+
+#main-header{
+     background: #121212;
+     color: #ff3333;
+     padding: 15px;
+     font-family: "Special Elite", system-ui;
+     text-align: center;
+     border-bottom: 3px solid #ff3333;
+     margin-bottom: 20px;
+}
+
+#main-header p {
+     color: #aaa;
+}
+
+/* MAIN: Galeria */
+#container {
+     /*border: 1px solid red;*/
+     display: flex;
+     flex-wrap: nowrap;
+     padding: 20px;
+     gap: 20px;
+     align-items: flex-start;
+}
+
+/* Cards de personagens */
+.galeria-protagonistas {
+     /*border: 1px solid red;*/
+     /*background-color: #1c1c1c;*/
+     padding: 5px;
+     border-radius: 6px;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 20px;
+     width: 100%;
+
+}
+
+.card-personagem {
+     display: flex;
+     flex-direction: column;
+     position: relative;
+     background-color: #1c1c1c;
+     border: 1px solid #333;
+     border-radius: 8px;
+     overflow: hidden;
+     padding: 5px;
+     width: 250px;
+     min-width: 0;
+     filter: grayscale(100%);
+     transition: transform 0.2s;
+}
+
+
+/* BADGES DOS PERSONAGENS */
+.badge {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     padding: 5px 10px;
+     font-size: 0.75rem;
+     font-weight: bold;
+     text-transform: uppercase;
+     background-color: #b30000;
+     color: white;
+     border-radius: 999px;
+     z-index: 10;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* PERSONALIZAÇÃO DAS BADGES */
+.stars {
+     background: #000000;
+     color: #ffffff;
+}
+
+.umbrella {
+     background: #b91c1c;
+     color: #ffffff;
+}
+
+.bsaa {
+     background: #435A48;
+     color: #ffffff;
+}
+
+.ubcs {
+     background: #7c2d12;
+     color: #ffffff;
+}
+
+.terrasave {
+     background: #0E2C59;
+     color: #ffffff;
+}
+
+.dso {
+     background: #01123A;
+     color: #ffffff;
+}
+
+.fbi {
+     background: #004791;
+     color: #FFD61A;
+}
+
+.iluminados {
+     background: #808080; 
+}
+
+.lordes {
+     background: #6b21a8;
+}
+
+/* Cards:HOVER */
+.card-personagem:hover {
+     transform: scale(1.1);
+     border-color: #ff3333;
+     filter: grayscale(0%);
+}
+
+.card-personagem img {
+     width: 100%;
+     height: 250px;
+     object-fit: cover;
+}
+
+.card-descricao {
+     padding: 15px;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     flex-grow: 1;
+}
+
+.card-descricao h3 {
+     font-family: "Special Elite", system-ui;
+     color: #fff;
+     margin-bottom: 5px;
+}
+
+.card-descricao p {
+     font-size: 15px;
+     color: #888;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #364d63;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    filter: grayscale(0%);
+}
+
+.tag-suporte {
+    display: inline-block;
+    background-color: #446600;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    filter: grayscale(0%);
+}
+
+.tag-vilao {
+    display: inline-block;
+    background-color: #ff3333;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    filter: grayscale(0%);
+}
+
+.tag-monstro {
+    display: inline-block;
+    background-color: #4d0000;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    filter: grayscale(0%);
+}
+
+.tag-boss {
+    display: inline-block;
+    background-color: #9900ff;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    filter: grayscale(0%);
+}
+
+/* ASIDE: Conteúdo lateral */
+.sidebar {
+     flex: 1;
+     background-color: #121212;
+     color: #e0e0e0;
+     padding: 35px;
+     border-radius: 8px;
+     border-left: 4px solid #ff3333;
+     min-width: 250px;
+}
+
+.faction-box {
+     margin-top: 20px;
+     background-color: #121212;
+     border-radius: 4px;
+     font-family: "Special Elite", system-ui;
+}
+
+.faction-box h4 {
+     color: #e0e0e0;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+}
+
+.faction-box ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+}
+
+.faction-box li {
+     margin-bottom: 8px;
+}
+
+.faction-box a {
+     display: block;
+     color: #ff3333;
+     text-decoration: none;
+     padding: 8px 12px;
+     border: 1px solid transparent;
+     border-radius: 4px;
+}
+
+.faction-box a:hover {
+     border: 1px solid #ff3333;
+}
+
+abbr[title] {
+     text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+     #container {
+          flex-direction: column; 
+     }
+}

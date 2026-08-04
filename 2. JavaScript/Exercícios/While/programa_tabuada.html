@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada com While</title>
+
+    <script>
+
+        // Desenvolver um programa que determine um limite onde apenas aceita números de 1 - 9
+        let numero = Number(prompt("Digite um número entre 1 - 9"));
+
+        while(numero < 1 || numero > 9){
+            numero = Number(prompt("Número inválido!\nDigite um número entre 1 - 9"));
+        }
+
+        for (let i = 1; i <= 10; i++) {
+            console.log(numero +" x "+ i +" = "+ (numero * i));
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

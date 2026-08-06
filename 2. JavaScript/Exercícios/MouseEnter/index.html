@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de MouseEnter e MouseOut</title>
+
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+            gap: 30px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 100px);
+            gap: 15px;
+        }
+
+        .caixa {
+            background: #666666;
+            width: 100px;
+            height: 100px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .botao {
+            width: 180px;
+            height: 30px;
+            background-color: #FFFFFF;
+            color: #666666;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="caixa">Caixa 1</div>
+        <div class="caixa">Caixa 2</div>
+        <div class="caixa">Caixa 3</div>
+        <div class="caixa">Caixa 4</div>
+        <div class="caixa">Caixa 5</div>
+        <div class="caixa">Caixa 6</div>
+        <div class="caixa">Caixa 7</div>
+        <div class="caixa">Caixa 8</div>
+        <div class="caixa">Caixa 9</div>
+        <div class="caixa">Caixa 10</div>
+    </div>
+
+    <script>
+        
+        var caixas = document.querySelectorAll('.caixa');
+
+        caixas.forEach(caixa => {
+
+            caixa.addEventListener('mouseenter', () => {
+                caixa.style.backgroundColor = '#3333cc';
+            });
+
+            caixa.addEventListener('mouseleave', () => {
+                caixa.style.backgroundColor = '#ff5050';
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de acordo com o horário</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .imagem-periodo {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        body.dia {
+            background-color: #f0f8ff;
+            color: #333333;
+        }
+
+        body.tarde {
+            background-color: #ffe4b5;
+            color: #333333;
+        }
+
+        body.noite {
+            background-color: #2f4f4f;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body id="corpo" class="dia">
+
+    <div class="container">
+
+        <h1 id="titulo">Carregando saudação...</h1>
+        <p id="texto-hora">Carregando horário...</p>
+        <img id="imagem" src="" alt="Imagem representativa do horário" class="imagem-periodo">
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

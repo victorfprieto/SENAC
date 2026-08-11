@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var saldo = 500;
+        var saque, deposito;
+        var opcao;
+
+        while (opcao != "3") {
+            opcao = prompt("Seu saldo é: R$ " + saldo + "\n\nEscolha uma opção:\n" + "1 - Sacar\n2 - Depositar\n3 - Sair");
+
+            switch (opcao) {
+                case '1':
+                    sacar();
+                    break;
+                case '2':
+                    depositar();
+                    break;
+                case '3':
+                    alert("Saindo do sistema. Até logo!");
+                    break;
+                default:
+                    if (opcao !== null) {
+                        alert("Opção inválida! Escolha 1, 2 ou 3.");
+                    }
+                    break;
+            }
+        }
+
+        function depositar() {
+            deposito = Number(prompt("Digite o valor que deseja depositar: "));
+            
+            if (isNaN(deposito) || deposito <= 0) {
+                alert("Valor de depósito inválido!");
+            } else {
+                saldo += deposito;
+                alert("Depósito concluído!\nSeu saldo atual é R$ " + saldo);
+            }
+        }
+
+        function sacar() {
+            saque = Number(prompt("Seu saldo é: R$" + saldo + "\nDigite o valor que quer sacar: "));
+            
+            if (isNaN(saque) || saque <= 0) {
+                alert("Valor de saque inválido!");
+            } else if (saldo >= saque) {
+                saldo -= saque;
+                alert("Saque concluído!\nSeu saldo atual é: R$ " + saldo);
+            } else {
+                alert("Saldo insuficiente!");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+
+    <script>
+
+        var frutas = Array();
+        frutas = ["banana", "maça", "abacaxi"];
+        frutas[3] = "abacate";
+        frutas[4] = "morango";
+        
+        console.log(frutas);
+        console.log(frutas[1]);
+
+        var coisas = ["Marcelo", 55, 1.89, true];
+        console.log(coisas);
+
+        // Array Nominal
+        var cadastro = Array();
+        cadastro["nome"] = "Marcelo";
+        cadastro["idade"] = 55;
+        cadastro["altura"] = 1.89;
+        cadastro["doador"] = true;
+
+        console.log(cadastro);
+
+        
+        // Matriz 
+        var agenda = Array();
+
+        agenda["nomes"] = Array("Marcelo", "Marcos", "Fábio");
+        agenda["telefone"] = ["11 1111-1111", "22 2222 2222", "33 3333 3333"];
+
+        for (let i = 0; i < agenda["nomes"].length ; i++) {
+            console.log(agenda["nomes"][i] + " - " + agenda["telefone"][i]);
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

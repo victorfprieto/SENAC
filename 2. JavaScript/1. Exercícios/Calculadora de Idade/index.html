@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Análise de Idade</title>
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Idade</h1>
+    </header>
+    
+    <main class="painel-principal">
+        <section class="bloco-formulario">
+            <div class="grupo-campo">
+                <label for="campo-ano">Ano de nascimento:</label>
+                <input type="number" id="campo-ano" min="1900" max="2024" placeholder="Ex: 1995">
+            </div>
+            
+            <div class="grupo-campo">
+                <span class="rotulo-genero">Sexo:</span>
+                <input type="radio" name="opcao-sexo" id="genero-m" checked>
+                <label for="genero-m">Masculino</label>
+
+                <input type="radio" name="opcao-sexo" id="genero-f">
+                <label for="genero-f">Feminino</label>
+            </div>
+
+            <div class="grupo-botao">
+                <button id="botao-acao" onclick="analisarPerfil()">Calcular</button>
+            </div>
+        </section>
+
+        <section class="bloco-resultado">
+            <img id="foto-perfil" src="./imagens/bebemenina.png" alt="Foto de perfil">
+            <p id="mensagem-resultado"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

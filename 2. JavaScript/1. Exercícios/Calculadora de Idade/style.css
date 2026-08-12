@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #003333;
+    color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.painel-principal {
+    width: 100%;
+    max-width: 450px;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding: 25px;
+}
+
+.bloco-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.grupo-campo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.grupo-campo label {
+    font-weight: 600;
+}
+
+#campo-ano {
+    padding: 8px;
+    width: 120px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.grupo-botao {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#botao-acao {
+    padding: 10px 25px;
+    font-family: inherit;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    background-color: #008080;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#botao-acao:hover {
+    background-color: #00b3b3;
+}
+
+.bloco-resultado {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#foto-perfil {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #330000;
+    display: none;
+    margin: 0 auto 15px auto;
+}
+
+#mensagem-resultado {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #444;
+}

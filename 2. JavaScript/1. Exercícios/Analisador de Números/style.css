@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #202024;
+    color: #e1e1e6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+header {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #f1f1f6;
+}
+
+section {
+    background-color: #202024;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 440px;
+    border: 1px #29292e;
+}
+
+.linha-entrada {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #a8a8b3;
+}
+
+input[type="number"] {
+    padding: 8px;
+    width: 65px;
+    background-color: #323238;
+    border: 1px solid #323238;
+    color: #e1e1e6;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input[type="number"]:focus {
+    border-color: #818cf8;
+    outline: none;
+}
+
+.grupo-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+input[type="button"] {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    color: #121214; /* Texto escuro nos botões pastéis para contraste ideal */
+    transition: filter 0.2s, transform 0.1s;
+}
+
+input[type="button"]:hover {
+    filter: brightness(1.1);
+}
+
+input[type="button"]:active {
+    transform: scale(0.98);
+}
+
+/* Cores pastéis personalizadas para o Dark Mode */
+#botao-inserir {
+    background-color: #a7f3d0; /* Verde pastel suave */
+}
+
+#botao-processar {
+    background-color: #bae6fd; /* Azul pastel suave */
+}
+
+#botao-limpar {
+    background-color: #fecdd3; /* Vermelho/Rosa pastel suave */
+}
+
+select {
+    width: 100%;
+    min-height: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #323238;
+    border-radius: 6px;
+    background-color: #323238;
+    color: #e1e1e6;
+}
+
+#painel-resultado {
+    margin-top: 20px;
+    border-top: 1px solid #323238;
+    padding-top: 15px;
+    color: #c4c4cc;
+}

@@ -1,0 +1,80 @@
+/* DEVHOOK - ESTILOS GLOBAIS
+
+   Este arquivo contém apenas configurações compartilhadas
+   entre as páginas do projeto.
+
+   Estilos específicos devem permanecer nos respectivos
+   arquivos, como index.css, home.css, header.css etc.
+
+*/
+
+/* Variáveis Globais */
+:root {
+
+    /* Cores principais */
+    --cor-roxo: #7C3AED;
+    --cor-roxo-escuro: #6D28D9;
+    --cor-ciano: #22D3EE;
+    --cor-verde: #10B981;
+    --cor-azul-noite: #0F172A;
+    --cor-cinza-claro: #F1F5F9;
+    --cor-branco: #FFFFFF;
+    --cor-preto: #000000;
+
+    /* Cores auxiliares */
+    --cor-texto: #0F172A;
+    --cor-texto-secundario: #64748B;
+    --cor-borda: #E2E8F0;
+
+    /* Tipografia */
+    --fonte-titulo: "Space Grotesk", sans-serif;
+    --fonte-corpo: "Inter", sans-serif;
+
+    /* Bordas */
+    --raio-pequeno: 6px;
+    --raio-medio: 8px;
+    --raio-grande: 12px;
+    --raio-extra-grande: 16px;
+
+    /* Transições */
+    --transicao-padrao: 0.2s ease;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto);
+    background-color: var(--cor-branco);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}

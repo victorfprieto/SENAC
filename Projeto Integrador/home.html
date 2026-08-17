@@ -5,8 +5,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Encontre oportunidades para desenvolvedores iniciantes no DevHook.">
-    <title>DevHook | Vagas</title>
+    <meta name="description" content="DevHook - Plataforma para conectar desenvolvedores iniciantes a oportunidades de emprego e recrutadores.">
+    <title>DevHook | Conectando talentos à tecnologia</title>
 
     <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,15 +18,13 @@
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-
+    
 </head>
-
 <body>
 
-    <!-- HEADER -->
-    <header class="cabecalho">
+    <header class="cabecalho-inicial">
 
-        <a href="index.html" class="marca" aria-label="DevHook - Página inicial">
+        <a href="home.html" class="marca" aria-label="DevHook - Página inicial">
 
             <span class="logo-imagem">
 
@@ -42,555 +40,299 @@
 
         </a>
 
-        <nav class="navegacao" id="navegacao-principal" aria-label="Navegação principal">
-
-            <ul class="lista-navegacao">
-
-                <li>
-                    <a href="home.html" aria-current="page">
-                        Vagas
-                    </a>
-                </li>
-
-                <li>
-                    <a href="recrutadores.html">
-                        Recrutadores
-                    </a>
-                </li>
-
-                <li>
-                    <a href="desafios.html">
-                        Desafios
-                    </a>
-                </li>
-
-                <li>
-                    <a href="perfil.html">
-                        Meu perfil
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-        <!-- BUSCAR VAGAS -->
-        <form class="formulario-busca" id="formulario-busca" role="search">
-
-            <label class="rotulo-busca" for="campo-busca">
-                Buscar vagas
-            </label>
-
-            <input type="search" id="campo-busca" name="busca" placeholder="Buscar vagas..." autocomplete="off">
-
-            <button type="submit" class="botao-busca" aria-label="Buscar vagas">
-                ⌕
-            </button>
-
-        </form>
-
-        <!-- MENU HAMBURGER -->
-        <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="navegacao-principal">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main>
 
-        <!-- BANNER -->
-        <section class="banner-vagas" aria-labelledby="titulo-banner">
+        <section class="apresentacao" aria-labelledby="titulo-apresentacao">
 
-            <div class="conteudo-banner">
+            <div class="apresentacao-conteudo">
 
-                <h1 id="titulo-banner">
-                    Encontre sua próxima oportunidade.
+                <h1 id="titulo-apresentacao">
+                    Conectando talentos
+                    <br>
+                    à tecnologia.
                 </h1>
 
-                <p>
-                    Encontre vagas para começar ou desenvolver
-                    sua carreira na área de tecnologia.
+                <p class="apresentacao-descricao">
+                    Uma plataforma criada para aproximar
+                    desenvolvedores iniciantes de oportunidades
+                    de emprego e recrutadores.
                 </p>
 
             </div>
 
         </section>
 
-        <!-- SEÇÃO DE VAGAS -->
-        <section class="secao-vagas" aria-labelledby="titulo-vagas">
+        <section class="escolha-usuario" aria-labelledby="titulo-escolha">
 
-            <div class="cabecalho-vagas">
+            <div class="secao-cabecalho">
 
-                <div>
+                <p class="etiqueta">
+                    COMECE AGORA
+                </p>
 
-                    <h2 id="titulo-vagas">
-                        Vagas disponíveis
-                    </h2>
+                <h2 id="titulo-escolha">
+                    O que você está procurando?
+                </h2>
 
-                </div>
-
-            </div>
-
-            <!-- FILTROS -->
-            <div class="area-filtros">
-
-                <!-- TIPO DE OPORTUNIDADE -->
-                <div class="campo-filtro">
-
-                    <label for="filtro-tipo">
-                        Tipo de oportunidade
-                    </label>
-
-                    <select id="filtro-tipo">
-
-                        <option value="todos">
-                            Todas
-                        </option>
-
-                        <option value="clt">
-                            CLT
-                        </option>
-
-                        <option value="freelance">
-                            Freelance
-                        </option>
-
-                        <option value="estagio">
-                            Estágio
-                        </option>
-
-                    </select>
-
-                </div>
-
-                <!-- TECNOLOGIA -->
-                <div class="campo-filtro">
-
-                    <label for="filtro-tecnologia">
-                        Tecnologia
-                    </label>
-
-                    <select id="filtro-tecnologia">
-
-                        <option value="todas">
-                            Todas
-                        </option>
-
-                        <option value="html5">
-                            HTML5
-                        </option>
-
-                        <option value="css3">
-                            CSS3
-                        </option>
-
-                        <option value="javascript">
-                            JavaScript
-                        </option>
-
-                    </select>
-
-                </div>
-
-                <!-- LOCAL/REMOTO -->
-                <div class="campo-filtro">
-
-                    <label for="filtro-localidade">
-                        Localidade
-                    </label>
-
-                    <select id="filtro-localidade">
-
-                        <option value="todas">
-                            Todas
-                        </option>
-
-                        <option value="remoto">
-                            Remoto
-                        </option>
-
-                        <option value="santos">
-                            Santos - SP
-                        </option>
-
-                        <option value="sao-paulo">
-                            São Paulo - SP
-                        </option>
-
-                        <option value="rio-de-janeiro">
-                            Rio de Janeiro - RJ
-                        </option>
-
-                        <option value="campinas">
-                            Campinas - SP
-                        </option>
-
-                    </select>
-
-                </div>
-
-                <!-- LIMPAR FILTROS -->
-                <button type="button" class="botao-limpar-filtros" id="botao-limpar-filtros">
-                    Limpar filtros
-                </button>
+                <p>
+                    Escolha uma opção para continuar navegando
+                    pelo DevHook.
+                </p>
 
             </div>
 
-            <!-- CONTADOR -->
-            <p class="contador-vagas" id="contador-vagas" aria-live="polite">
-                9 vagas encontradas
-            </p>
+            <div class="opcoes-usuario">
 
-            <!-- LISTA DE VAGAS -->
-            <div class="lista-vagas" id="lista-vagas">
+                <a href="vagas.html" class="opcao-usuario">
 
-                <!-- VAGA 01 -->
-                <article class="cartao-vaga" data-tipo="clt"  data-tecnologias="html5 css3 javascript" data-localidade="santos">
+                    <div class="opcao-icone" aria-hidden="true">
+                        &lt;/&gt;
+                    </div>
 
-                    <div class="conteudo-vaga">
-
-                        <span class="tipo-vaga">
-                            CLT
-                        </span>
+                    <div class="opcao-conteudo">
 
                         <h3>
-                            Desenvolvedor Front-end Júnior
+                            Sou desenvolvedor
                         </h3>
 
-                        <p class="empresa-vaga">
-                            Tech Solutions
+                        <p>
+                            Encontre vagas, desafios e oportunidades
+                            para desenvolver sua carreira.
                         </p>
 
-                        <p class="localizacao-vaga">
-                            Santos - SP
+                    </div>
+
+
+                    <span class="opcao-link">
+                        Ver vagas →
+                    </span>
+
+                </a>
+
+                <a href="recrutadores.html" class="opcao-usuario">
+
+                    <div class="opcao-icone opcao-icone-roxo" aria-hidden="true">
+                        ◇
+                    </div>
+
+                    <div class="opcao-conteudo">
+
+                        <h3>
+                            Sou recrutador
+                        </h3>
+
+                        <p>
+                            Encontre desenvolvedores e conheça
+                            novos talentos para sua empresa.
                         </p>
 
-                        <div class="tecnologias-vaga">
+                    </div>
 
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
+                    <span class="opcao-link">
+                        Encontrar talentos →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <section class="sobre" aria-labelledby="titulo-sobre">
+
+            <div class="secao-cabecalho sobre-cabecalho">
+
+                <p class="etiqueta">
+                    SOBRE O PROJETO
+                </p>
+
+                <h2 id="titulo-sobre">
+                    Conheça o DevHook
+                </h2>
+
+                <p>
+                    O DevHook é um projeto desenvolvido com o
+                    objetivo de aproximar desenvolvedores iniciantes
+                    das primeiras oportunidades no mercado de tecnologia.
+                </p>
+
+            </div>
+
+            <div class="desenvolvedores">
+
+                <!-- VICTOR FOGAÇA PRIETO -->
+                <article class="cartao-desenvolvedor">
+
+                    <div class="informacoes-principais">
+
+                        <div class="foto-desenvolvedor">
+
+                            <img src="assets/img/equipe/victor.jpg" alt="Foto de Victor Fogaça Prieto">
+
+                        </div>
+
+                        <div class="dados-desenvolvedor">
+
+                            <h3>
+                                Victor Fogaça Prieto
+                            </h3>
+
+                            <a href="https://github.com/victorfprieto" class="link-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Victor Fogaça Prieto">
+                                GitHub ↗
+                            </a>
 
                         </div>
 
                     </div>
 
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
+
+                    <div class="informacoes-adicionais">
+
+                        <p class="titulo-responsabilidade">
+                            Responsável por:
+                        </p>
+
+
+                        <ul class="lista-responsabilidades">
+
+                            <li>
+                                Padronização visual
+                            </li>
+
+                            <li>
+                                Página inicial e Home (HTML, CSS e JS)
+                            </li>
+
+                        </ul>
+
+                    </div>
 
                 </article>
 
-                <!-- VAGA 02 -->
-                <article class="cartao-vaga" data-tipo="freelance" data-tecnologias="html5 css3" data-localidade="remoto">
+                <!-- RAFAEL NUNES SILVA -->
+                <article class="cartao-desenvolvedor">
 
-                    <div class="conteudo-vaga">
+                    <div class="informacoes-principais">
 
-                        <span class="tipo-vaga">
-                            FREELANCE
-                        </span>
+                        <div class="foto-desenvolvedor">
 
-                        <h3>
-                            Desenvolvedor Web
-                        </h3>
+                            <!--
+                            <img src="assets/img/equipe/rafael.jpg" alt="Foto de Rafael Nunes Silva">
+                            -->
 
-                        <p class="empresa-vaga">
-                            Agência Pixel
-                        </p>
+                            <span aria-hidden="true">
+                                RN
+                            </span>
 
-                        <p class="localizacao-vaga">
-                            Remoto
-                        </p>
+                        </div>
 
-                        <div class="tecnologias-vaga">
 
-                            <span>HTML5</span>
-                            <span>CSS3</span>
+                        <div class="dados-desenvolvedor">
+
+                            <h3>
+                                Rafael Nunes Silva
+                            </h3>
+
+                            <a href="#" class="link-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Rafael Nunes Silva">
+                                GitHub ↗
+                            </a>
 
                         </div>
 
                     </div>
 
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
+                    <div class="informacoes-adicionais">
+
+                        <p class="titulo-responsabilidade">
+                            Responsável por:
+                        </p>
+
+                        <ul class="lista-responsabilidades">
+
+                            <li>
+                                Wireframes do projeto
+                            </li>
+
+                            <li>
+                                Página de Recrutadores (HTML, CSS e JS)
+                            </li>
+
+                        </ul>
+
+                    </div>
 
                 </article>
 
-                <!-- VAGA 03 -->
-                <article class="cartao-vaga" data-tipo="estagio" data-tecnologias="html5 javascript" data-localidade="sao-paulo">
 
-                    <div class="conteudo-vaga">
+                <!-- THIAGO DOS SANTOS MAGASSY -->
+                <article class="cartao-desenvolvedor">
 
-                        <span class="tipo-vaga">
-                            ESTÁGIO
-                        </span>
+                    <div class="informacoes-principais">
 
-                        <h3>
-                            Estagiário de Desenvolvimento
-                        </h3>
+                        <div class="foto-desenvolvedor">
 
-                        <p class="empresa-vaga">
-                            Startup Solutions
-                        </p>
+                            <!--
+                            <img src="assets/img/equipe/thiago.jpg" alt="Foto de Thiago dos Santos Magassy">
+                            -->
 
-                        <p class="localizacao-vaga">
-                            São Paulo - SP
-                        </p>
+                            <span aria-hidden="true">
+                                TS
+                            </span>
 
-                        <div class="tecnologias-vaga">
+                        </div>
 
-                            <span>HTML5</span>
-                            <span>JavaScript</span>
+
+                        <div class="dados-desenvolvedor">
+
+                            <h3>
+                                Thiago dos Santos Magassy
+                            </h3>
+
+                            <a href="#" class="link-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Thiago dos Santos Magassy">
+                                GitHub ↗
+                            </a>
 
                         </div>
 
                     </div>
 
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
+                    <div class="informacoes-adicionais">
 
-                </article>
-
-                <!-- VAGA 04 -->
-                <article class="cartao-vaga" data-tipo="clt" data-tecnologias="javascript" data-localidade="sao-paulo">
-
-                    <div class="conteudo-vaga">
-
-                        <span class="tipo-vaga">
-                            CLT
-                        </span>
-
-                        <h3>
-                            Desenvolvedor JavaScript Júnior
-                        </h3>
-
-                        <p class="empresa-vaga">
-                            CodeLab
+                        <p class="titulo-responsabilidade">
+                            Responsável por:
                         </p>
 
-                        <p class="localizacao-vaga">
-                            São Paulo - SP
-                        </p>
+                        <ul class="lista-responsabilidades">
 
-                        <div class="tecnologias-vaga">
+                            <li>
+                                Identidade visual (Logo, cores, etc)
+                            </li>
 
-                            <span>JavaScript</span>
+                            <li>
+                                Página de desafios diários (HTML, CSS e JS)
+                            </li>
 
-                        </div>
+                        </ul>
 
                     </div>
-
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
-
-                </article>
-
-                <!-- VAGA 05 -->
-                <article class="cartao-vaga" data-tipo="freelance" data-tecnologias="css3" data-localidade="remoto">
-
-                    <div class="conteudo-vaga">
-
-                        <span class="tipo-vaga">
-                            FREELANCE
-                        </span>
-
-                        <h3>
-                            Designer de Interfaces Web
-                        </h3>
-
-                        <p class="empresa-vaga">
-                            Studio Creative
-                        </p>
-
-                        <p class="localizacao-vaga">
-                            Remoto
-                        </p>
-
-                        <div class="tecnologias-vaga">
-
-                            <span>CSS3</span>
-
-                        </div>
-
-                    </div>
-
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
-
-                </article>
-
-                <!-- VAGA 06 -->
-                <article class="cartao-vaga" data-tipo="estagio" data-tecnologias="html5 css3" data-localidade="santos">
-
-                    <div class="conteudo-vaga">
-
-                        <span class="tipo-vaga">
-                            ESTÁGIO
-                        </span>
-
-                        <h3>
-                            Estagiário Front-end
-                        </h3>
-
-                        <p class="empresa-vaga">
-                            NovaTech
-                        </p>
-
-                        <p class="localizacao-vaga">
-                            Santos - SP
-                        </p>
-
-                        <div class="tecnologias-vaga">
-
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-
-                        </div>
-
-                    </div>
-
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
-
-                </article>
-
-                <!-- VAGA 07 -->
-                <article class="cartao-vaga" data-tipo="clt" data-tecnologias="html5 css3" data-localidade="campinas">
-
-                    <div class="conteudo-vaga">
-
-                        <span class="tipo-vaga">
-                            CLT
-                        </span>
-
-                        <h3>
-                            Desenvolvedor de Interfaces
-                        </h3>
-
-                        <p class="empresa-vaga">
-                            WebHouse
-                        </p>
-
-                        <p class="localizacao-vaga">
-                            Campinas - SP
-                        </p>
-
-                        <div class="tecnologias-vaga">
-
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-
-                        </div>
-
-                    </div>
-
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
-
-                </article>
-
-                <!-- VAGA 08 -->
-                <article class="cartao-vaga" data-tipo="freelance" data-tecnologias="html5 javascript" data-localidade="rio-de-janeiro">
-
-                    <div class="conteudo-vaga">
-
-                        <span class="tipo-vaga">
-                            FREELANCE
-                        </span>
-
-                        <h3>
-                            Criador de Sites Responsivos
-                        </h3>
-
-                        <p class="empresa-vaga">
-                            Digital Works
-                        </p>
-
-                        <p class="localizacao-vaga">
-                            Rio de Janeiro - RJ
-                        </p>
-
-                        <div class="tecnologias-vaga">
-
-                            <span>HTML5</span>
-                            <span>JavaScript</span>
-
-                        </div>
-
-                    </div>
-
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
-
-                </article>
-
-                <!-- VAGA 09 -->
-                <article class="cartao-vaga" data-tipo="estagio" data-tecnologias="javascript css3" data-localidade="rio-de-janeiro">
-
-                    <div class="conteudo-vaga">
-
-                        <span class="tipo-vaga">
-                            ESTÁGIO
-                        </span>
-
-                        <h3>
-                            Estagiário de Desenvolvimento Web
-                        </h3>
-
-                        <p class="empresa-vaga">
-                            DevStart
-                        </p>
-
-                        <p class="localizacao-vaga">
-                            Rio de Janeiro - RJ
-                        </p>
-
-                        <div class="tecnologias-vaga">
-
-                            <span>JavaScript</span>
-                            <span>CSS3</span>
-
-                        </div>
-
-                    </div>
-
-                    <button type="button" class="botao-candidatar">
-                        Candidatar-se
-                    </button>
 
                 </article>
 
             </div>
-
-            <!-- MENSAGEM PRA FEEDBACK -->
-            <p class="mensagem-sem-vagas" id="mensagem-sem-vagas" hidden>
-                Nenhuma vaga encontrada com esses filtros.
-            </p>
 
         </section>
 
     </main>
-
 
     <!-- FOOTER -->
     <footer class="rodape">
 
         <div class="conteudo-rodape">
 
-            <!-- MARCA / LOGO -->
-            <a href="index.html" class="marca-rodape" aria-label="DevHook - Página inicial">
+            <!-- Marca / Logo -->
+            <a href="home.html" class="marca-rodape" aria-label="DevHook - Página inicial">
                 <span class="logo-rodape-imagem">
                     <img src="assets/img/logo/logo-devhook.png" alt="Logo DevHook">
                 </span>
@@ -599,26 +341,14 @@
                 </span>
             </a>
 
-            <!-- DIREITOS RESERVADOS -->
+            <!-- Direitos Autorais / Reservados -->
             <p class="direitos-rodape">
                 2026 DevHook © Todos os direitos reservados - Desenvolvido para o Projeto Integrador.
             </p>
 
-            <!-- MENU NAVEGAÇÃO -->
-            <nav class="navegacao-rodape" aria-label="Navegação do rodapé">
-                <ul>
-                    <li><a href="home.html">Vagas</a></li>
-                    <li><a href="recrutadores.html">Recrutadores</a></li>
-                    <li><a href="desafios.html">Desafios</a></li>
-                    <li><a href="perfil.html">Meu perfil</a></li>
-                </ul>
-            </nav>
-
         </div>
 
     </footer>
-
-    <script src="assets/js/script.js"></script>
 
 </body>
 

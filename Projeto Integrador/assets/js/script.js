@@ -165,11 +165,13 @@ for (var j = 0; j < botoesCandidatar.length; j++) {
 
         var botaoClicado = this;
 
+        botaoClicado.textContent = "Vaga aplicada"
         botaoClicado.style.backgroundColor = "#28a745";
         botaoClicado.style.color = "#ffffff";
 
         setTimeout(function() {
 
+            botaoClicado.textContent = "Candidatar-se";
             botaoClicado.style.backgroundColor = "";
             botaoClicado.style.color = "";
 

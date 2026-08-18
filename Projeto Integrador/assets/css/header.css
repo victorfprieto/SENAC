@@ -4,58 +4,61 @@
     position: relative;
     z-index: 1000;
     width: 100%;
-    min-height: 74px;
+    min-height: 82px;
     padding: 0 40px;
     display: flex;
     align-items: center;
-    gap: 40px;
+    justify-content: space-between;
     background-color: var(--cor-azul-noite);
     border-bottom: 1px solid #26334A;
 }
 
-/* MARCA */
-.cabecalho .marca {
-    display: flex;
+/* MARCA / LOGO */
+.marca {
+    width: fit-content;
+    display: inline-flex;
     align-items: center;
-    gap: 9px;
-    flex-shrink: 0;
-    color: var(--cor-branco);
-    text-decoration: none;
+    gap: 10px;
 }
 
-.cabecalho .logo-imagem {
-    width: 40px;
-    height: 40px;
+/* LOGO */
+.logo-imagem {
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    flex-shrink: 0;
 }
 
-.cabecalho .logo-imagem img {
+.logo-imagem img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.cabecalho .logo-texto {
+/* MARCA */
+.logo-texto {
     font-family: var(--fonte-titulo);
-    font-size: 22px;
+    font-size: 1.45rem;
     font-weight: 700;
-    letter-spacing: -0.8px;
+    line-height: 1;
 }
 
-.cabecalho .logo-dev {
+/* "Dev" */
+.logo-dev {
     color: var(--cor-branco);
 }
 
-.cabecalho .logo-hook {
+/* "Hook" */
+.logo-hook {
     color: var(--cor-roxo);
 }
 
 /* NAVEGAÇÃO */
 .navegacao {
-    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .lista-navegacao {
@@ -93,65 +96,6 @@
 .lista-navegacao a:hover::after,
 .lista-navegacao a[aria-current="page"]::after {
     width: 100%;
-}
-
-/* BUSCA */
-.formulario-busca {
-    width: 210px;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.rotulo-busca {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-.formulario-busca input {
-    width: 100%;
-    height: 38px;
-    padding: 0 38px 0 13px;
-    color: var(--cor-branco);
-    background-color: #172235;
-    border: 1px solid #29374D;
-    border-radius: var(--raio-medio);
-    outline: none;
-    font-size: 12px;
-    transition:
-        border-color var(--transicao-padrao),
-        background-color var(--transicao-padrao);
-}
-
-.formulario-busca input::placeholder {
-    color: #64748B;
-}
-
-.formulario-busca input:focus {
-    border-color: var(--cor-roxo);
-    background-color: #1A2740;
-}
-
-.botao-busca {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    width: 28px;
-    height: 28px;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #94A3B8;
-    background: transparent;
-    border: 0;
-    font-size: 19px;
 }
 
 /* MENU HAMBURGUER */

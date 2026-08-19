@@ -4,6 +4,7 @@
     - Menu Hamburger;
     - Filtros de vagas;
     - Botão de limpar filtros;
+    - Filtros de tipo, tecnologia e localidade;
 
 */
 

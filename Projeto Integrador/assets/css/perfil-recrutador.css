@@ -204,7 +204,6 @@
 }
 
 .card-atalho:hover {
-    transform: translateY(-4px);
     border-color: #6366f1;
 }
 

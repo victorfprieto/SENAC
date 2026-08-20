@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devhook</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/recrutador.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="cabecalho">
+ 
+        <a href="home.html" class="marca" aria-label="DevHook - Página inicial">
+ 
+            <span class="logo-imagem">
+ 
+                <img src="assets/img/logo/logo-devhook.png" alt="Logo DevHook">
+ 
+            </span>
+ 
+            <span class="logo-texto">
+ 
+                <span class="logo-dev">Dev</span><span class="logo-hook">Hook</span>
+ 
+            </span>
+ 
+        </a>
+ 
+        <nav class="navegacao" id="navegacao-principal" aria-label="Navegação principal">
+ 
+            <ul class="lista-navegacao">
+ 
+                <li>
+                    <a href="vagas.html">
+                        Vagas
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="recrutador.html" aria-current="page">
+                        Recrutadores
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="desafios.html">
+                        Desafios
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="perfil-devs.html">
+                        Meu perfil
+                    </a>
+                </li>
+ 
+            </ul>
+ 
+        </nav>
+ 
+        <!-- MENU HAMBURGER -->
+        <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="navegacao-principal">
+ 
+            <span></span>
+            <span></span>
+            <span></span>
+ 
+        </button>
+ 
+    </header>   
+    
+    
+    <main>
+        <div id="container">
+            <section class="banner-vagas" aria-labelledby="titulo-banner">
+ 
+                <div class="conteudo-banner">
+    
+                    <h1 id="titulo-banner">
+                        Encontre Desenvolvedores para sua empresa.
+                    </h1>
+    
+                </div>
+ 
+            </section>
+
+            <div class="container-filtros">
+                <div class="filtro-item">
+                    <label for="buscaNome">O que você procura?</label>
+                    <input type="text" id="buscaNome" class="filtro-input" placeholder="Digite o nome...">
+                </div>
+                
+                <div class="grupo-filtro">
+                    <label for="buscaCategoria">Experiencia</label>
+                    <select id="buscaCategoria" class="filtro-input">
+                        <option value="todos">Todas as categorias</option>
+                        <option value="Front-end">Front-end</option>
+                        <option value="Back-end">Back-end</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Full-stack">Full-stack</option>
+                        <option value="Desktop">Desktop</option>
+                        <option value="Embedded">Embedded</option>
+                        <option value="Cybersecurity Developer">Cybersecurity Developer</option>
+                        <option value="Cientista de Dados">Cientista de Dados</option>
+                        <option value="DevOps">DevOps</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container-devs">
+
+                <article class="devs-calendario" data-categoria="Front-end">
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Lucas Silva</h3>
+                    </div>
+                    <p>Olá! Meu nome é Lucas Silva e sou focado em construir interfaces web modernas, bonitas e totalmente responsivas através de código de alto nível. Eu crio o visual de sites interativos no navegador usando scripts rápidos que rodam direto no cliente.</p>
+                    <div class="container-tags"></div>
+                </article>
+
+                <article class="devs-calendario"data-categoria="Back-end" >
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Mariana Costa</h3>
+                    </div>
+                    <p>Prazer, sou a Mariana Costa. Minha paixão é construir de forma rápida a estrutura lógica e segura que fica por trás dos panos de grandes sistemas, desenvolvendo regras de negócio complexas e gerenciando servidores robustos com bancos de dados.</p>
+                    <div class="container-tags"></div>
+                </article>
+
+                <article class="devs-calendario" data-categoria="Mobile">
+
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Thiago Oliveira</h3>
+                    </div>
+                    <p>E aí! Sou o Thiago Oliveira e utilizo linguagens de alto nível para transformar ideias em aplicativos fluidos para smartphones. Eu crio aplicações modernas para celulares, configurando funções do aparelho e garantindo uma ótima experiência móvel.</p>
+                    <div class="container-tags"></div>
+                </article>
+
+                <article class="devs-calendario" data-categoria="Front-end, Back-end">
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Beatriz Santos</h3>
+                    </div>
+                    <p>Olá, sou a Beatriz Santos. Como programadora de alto nível, conecto o visual e a lógica para entregar um produto completo do início ao fim, transitando facilmente entre o banco de dados e a interface do usuário no fluxo completo.</p>
+                    <div class="container-tags"></div>
+                </article>
+
+                <article class="devs-calendario" data-categoria="Desktop">
+                    <img src="./assets/img/usuarios/icon." alt="">
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Roberto Almeida</h3>
+                    </div>
+                    <p>Olá! Meu nome é Roberto Almeida e sou especialista em criar softwares locais que são traduzidos em código binário para máxima performance. Desenvolvo programas robustos que rodam direto no Windows, Mac ou Linux aproveitando a máquina.</p>
+                    <div class="container-tags"></div>
+                </article>
+
+                <article class="devs-calendario" data-categoria="Embedded">
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Carlos Eduardo Lima</h3>
+                    </div>
+                    <p>Prazer, sou o Carlos Eduardo Lima. Meu trabalho exige o uso de linguagens de baixo nível para dar vida ao hardware com controle total dos chips, programando circuitos eletrônicos, placas e microcontroladores para dispositivos inteligentes.</p>
+                    <div class="container-tags"></div>
+                </article>
+
+                <article class="devs-calendario" data-categoria="Cybersecurity Developer, Desktop">
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Aline Ribeiro</h3>
+                    </div>
+                    <p>Olá, sou a Aline Ribeiro. Minha missão é usar linguagens robustas para blindar sistemas contra ataques antes que falhas sejam exploradas. Eu crio ferramentas de proteção, sistemas de segurança em aplicações desktop e criptografia complexa.</p>
+                    <div class="container-tags"></div>
+                </article>
+
+                <article class="devs-calendario" data-categoria="Cientista de Dados">
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Fernando Rocha</h3>
+                    </div>
+                    <p>Olá! Sou o Fernando Rocha e utilizo linguagens interpretadas para processar dados em tempo real e fazer computadores aprenderem sozinhos. Eu analiso grandes volumes de informação e treino modelos de inteligência artificial para previsões.</p>
+                    <div class="container-tags"></div>          
+                </article>
+
+                <article class="devs-calendario" data-categoria="DevOps, Cybersecurity Developer">
+                    <div class="imagem">
+                        <img src="./assets/img/icones/perfil.jpg" alt= "foto do lula">
+                        <h3>Camila Martins</h3>
+                    </div>
+                    <p>E aí, sou a Camila Martins. Garanto que a infraestrutura de servidores rode de forma segura e rápida usando ferramentas de automação, enviando códigos para a nuvem em larga escala e integrando barreiras com o time de proteção.</p>
+                    <div class="container-tags"></div>
+                </article>
+
+            </div>
+
+        </div>
+        
+    </main>
+ 
+
+    <!-- FOOTER -->
+    <footer class="rodape">
+
+        <div class="conteudo-rodape">
+
+            <!-- MARCA / LOGO -->
+            <a href="home.html" class="marca-rodape" aria-label="DevHook - Página inicial">
+                <span class="logo-rodape-imagem">
+                    <img src="assets/img/logo/logo-devhook.png" alt="Logo DevHook">
+                </span>
+                <span class="nome-rodape">
+                    <span class="nome-rodape-dev">Dev</span><span class="nome-rodape-hook">Hook</span>
+                </span>
+            </a>
+
+            <!-- DIREITOS RESERVADOS -->
+            <p class="direitos-rodape">
+                2026 DevHook © Todos os direitos reservados - Desenvolvido para o Projeto Integrador.
+            </p>
+
+            <!-- MENU NAVEGAÇÃO -->
+            <nav class="navegacao-rodape" aria-label="Navegação do rodapé">
+                <ul>
+                    <li><a href="vagas.html">Vagas</a></li>
+                    <li><a href="recrutador.html">Recrutadores</a></li>
+                    <li><a href="desafios.html">Desafios</a></li>
+                    <li><a href="perfil-recrutador.html">Meu perfil</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </footer>
+
+    <script src="./assets/js/recrutador.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

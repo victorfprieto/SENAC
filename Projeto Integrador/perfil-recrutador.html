@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel da Empresa</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/perfil-recrutador.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="cabecalho">
+ 
+        <a href="home.html" class="marca" aria-label="DevHook - Página inicial">
+ 
+            <span class="logo-imagem">
+ 
+                <img src="assets/img/logo/logo-devhook.png" alt="Logo DevHook">
+ 
+            </span>
+ 
+            <span class="logo-texto">
+ 
+                <span class="logo-dev">Dev</span><span class="logo-hook">Hook</span>
+ 
+            </span>
+ 
+        </a>
+ 
+        <nav class="navegacao" id="navegacao-principal" aria-label="Navegação principal">
+ 
+            <ul class="lista-navegacao">
+ 
+                <li>
+                    <a href="vagas.html">
+                        Vagas
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="recrutador.html">
+                        Recrutadores
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="desafios.html">
+                        Desafios
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="perfil-devs.html" aria-current="page">
+                        Meu perfil
+                    </a>
+                </li>
+ 
+            </ul>
+ 
+        </nav>
+ 
+        <!-- MENU HAMBURGER -->
+        <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="navegacao-principal">
+ 
+            <span></span>
+            <span></span>
+            <span></span>
+ 
+        </button>
+ 
+    </header>   
+
+    <div class="layout-pagina">
+        
+        <aside class="barra-lateral-fixa">
+            <div class="logo-sidebar">
+                <span>Recrutador</span>
+            </div>
+            <nav class="menu-sidebar">
+                <a href="recrutador.html" class="item-menu ativo"> Painel Geral</a>
+                <a href="#" class="item-menu"> Publicar Vaga</a>
+                <a href="#" class="item-menu"> Candidatos</a>
+                <a href="#" class="item-menu"> Relatórios</a>
+                <a href="#" class="item-menu"> Perfil Empresa</a>
+            </nav>
+        </aside>
+
+        <main class="conteudo-painel-principal">
+            <div class="container-painel">
+                
+                <section class="banner-usuario">
+                    <div class="usuario-lateral">
+                        <div class="usuario-avatar">
+                            <img src="./assets/img/icones/teste-foto.jpg" alt="Logo da Empresa" class="usuario-foto">
+                        </div>
+                        <h2>Grupo Max</h2>
+                        <button class="btn-preferencias">Configurações</button>
+                        <p class="usuario-email">##############@gmail.com</p>
+                    </div>
+
+                    <div class="usuario-conteudo-painel">
+                        <h3>Informações Recrutador</h3>
+                        <div class="grade-atalhos">
+                            <div class="card-atalho">
+                                <p id="name1">Nome:Grupo Max</p>
+                                <p id="name2">CNPJ:XX.XXX.XXX/XXXX-XX</p>
+                                <p id="name3">Sobre:</p>
+                                <p id="name4">O Grupo Max é uma referência em inovação e eficiência, focada em entregar soluções integradas de tecnologia e gestão. Com uma cultura de alta performance e excelência, conectamos talentos e processos para impulsionar o crescimento sustentável de nossos parceiros no mercado corporativo.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="botao-curriculo">
+                        <input type="button" class="botao-curriculo1" value="Publicar vagas">
+                    </div>
+                </section>
+
+                <section class="bloco-vagas-andamento">
+                    <div class="vagas-cabecalho">
+                        <h3>Processos seletivos criados</h3>
+                        <span class="seta-retratil">▲</span>
+                    </div>
+                    
+                    <div class="vaga-linha">
+                        <div class="vaga-info">
+                            <strong>Desenvolvedor Front-end Júnior</strong>
+                            <span>Publicado em: 10/04/2026</span>
+                        </div>
+                        <div class="vaga-prazo">
+                            <span>Prazo de inscrição: 30/04/2026</span>
+                        </div>
+                        <div class="vaga-status">
+                            <span class="badge-feedback">24 Candidatos</span>
+                        </div>
+                        <div class="vaga-atualizacao">
+                            <span>Última triagem hoje</span>
+                        </div>
+                    </div>
+
+                    <div class="vagas-acao">
+                        <button class="btn-ver-processos">Gerenciar todas as vagas</button>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+    </div>
+
+
+ <!-- FOOTER -->
+    <footer class="rodape">
+
+        <div class="conteudo-rodape">
+
+            <!-- MARCA / LOGO -->
+            <a href="home.html" class="marca-rodape" aria-label="DevHook - Página inicial">
+                <span class="logo-rodape-imagem">
+                    <img src="assets/img/logo/logo-devhook.png" alt="Logo DevHook">
+                </span>
+                <span class="nome-rodape">
+                    <span class="nome-rodape-dev">Dev</span><span class="nome-rodape-hook">Hook</span>
+                </span>
+            </a>
+
+            <!-- DIREITOS RESERVADOS -->
+            <p class="direitos-rodape">
+                2026 DevHook © Todos os direitos reservados - Desenvolvido para o Projeto Integrador.
+            </p>
+
+            <!-- MENU NAVEGAÇÃO -->
+            <nav class="navegacao-rodape" aria-label="Navegação do rodapé">
+                <ul>
+                    <li><a href="vagas.html">Vagas</a></li>
+                    <li><a href="recrutador.html">Recrutadores</a></li>
+                    <li><a href="desafios.html">Desafios</a></li>
+                    <li><a href="perfil-recrutador.html">Meu perfil</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </footer>
+
+    <script src="./assets/js/perfil-recrutador.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>

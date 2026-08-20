@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre ou crie a sua conta na DevHook!">
+    <title>Entrar | DevHook</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="assets/img/logo/favicon.ico" type="image/x-icon">
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body>
+
+    <main class="pagina-login">
+
+        <section class="apresentacao-login">
+
+            <a href="index.html" class="marca-login" aria-label="Voltar para a página inicial">
+
+                <span class="logo-imagem">
+                    <img src="assets/img/logo/logo-devhook.png" alt="Logo DevHook">
+                </span>
+
+                <span class="logo-texto">
+                    <span class="logo-dev">Dev</span><span class="logo-hook">Hook</span>
+                </span>
+
+            </a>
+
+            <div class="texto-apresentacao">
+
+                <span class="etiqueta-login">DEVHOOK</span>
+
+                <h1>
+                    Encontre sua próxima oportunidade.
+                </h1>
+
+                <p>
+                    Conecte-se a vagas, desenvolva seu portfólio
+                    e dê o próximo passo na sua carreira em tecnologia.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Área do formulário -->
+        <section class="area-login" aria-labelledby="titulo-login">
+
+            <div class="cabecalho-login">
+
+                <h2 id="titulo-login">
+                    Entrar
+                </h2>
+
+                <p>
+                    Acesse sua conta DevHook.
+                </p>
+
+            </div>
+
+            <form class="formulario-login">
+
+                <div class="campo-login">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+                <div class="campo-login">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+                <div class="opcoes-login">
+
+                    <label class="lembrar-login">
+
+                        <input
+                            type="checkbox"
+                            name="lembrar"
+                        >
+
+                        <span>
+                            Lembrar de mim
+                        </span>
+
+                    </label>
+
+                    <a href="#" class="link-senha">
+                        Esqueci minha senha
+                    </a>
+
+                </div>
+
+                <button type="submit" class="botao-entrar">
+                    Entrar
+                </button>
+
+            </form>
+
+            <p class="criar-conta">
+                Ainda não possui uma conta?
+                <a href="#">
+                    Criar conta
+                </a>
+            </p>
+
+            <a href="home.html" class="voltar-inicio">
+                Ir para a página inicial
+            </a>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

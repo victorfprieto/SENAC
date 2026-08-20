@@ -20,6 +20,7 @@
     padding: 0 6%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: var(--cor-azul-noite);
     border-bottom: 1px solid #1E293B;
 }
@@ -64,6 +65,27 @@
 /* "Hook" */
 .logo-hook {
     color: var(--cor-roxo);
+}
+
+/* BOTÃO SAIR */
+.botao-sair {
+    padding: 9px 18px;
+    color: #CBD5E1;
+    border: 1px solid #334155;
+    border-radius: var(--raio-pequeno);
+    font-family: var(--fonte-corpo);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition:
+        color var(--transicao-padrao),
+        border-color var(--transicao-padrao),
+        background-color var(--transicao-padrao);
+}
+
+.botao-sair:hover {
+    color: var(--cor-branco);
+    border-color: var(--cor-roxo);
+    background-color: rgba(124, 58, 237, 0.12);
 }
 
 /* APRESENTAÇÃO */
@@ -199,7 +221,6 @@
 
 /* RESPONSIVIDADE */
 @media (max-width: 900px) {
-
     .apresentacao {
         min-height: 380px;
         padding: 70px 6%;
@@ -212,7 +233,6 @@
 }
 
 @media (max-width: 600px) {
-
     .cabecalho-inicial {
         min-height: 70px;
         padding: 0 20px;
@@ -225,6 +245,11 @@
 
     .logo-texto {
         font-size: 1.25rem;
+    }
+
+    .botao-sair {
+        padding: 8px 14px;
+        font-size: 0.8rem;
     }
 
     .apresentacao {

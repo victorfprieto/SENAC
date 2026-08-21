@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios</title>
+    <link rel="shortcut icon" href="assets/img/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/desafios.css">
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="cabecalho">
+ 
+        <a href="home.html" class="marca" aria-label="DevHook - Página inicial">
+ 
+            <span class="logo-imagem">
+ 
+                <img src="assets/img/logo/logo-devhook.png" alt="Logo DevHook">
+ 
+            </span>
+ 
+            <span class="logo-texto">
+ 
+                <span class="logo-dev">Dev</span><span class="logo-hook">Hook</span>
+ 
+            </span>
+ 
+        </a>
+ 
+        <nav class="navegacao" id="navegacao-principal" aria-label="Navegação principal">
+ 
+            <ul class="lista-navegacao">
+ 
+                <li>
+                    <a href="vagas.html">
+                        Vagas
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="recrutador.html">
+                        Recrutadores
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="desafios.html"  aria-current="page">
+                        Desafios
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="perfil-devs.html">
+                        Meu perfil
+                    </a>
+                </li>
+ 
+            </ul>
+ 
+        </nav>
+ 
+        <!-- MENU HAMBURGER -->
+        <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="navegacao-principal">
+ 
+            <span></span>
+            <span></span>
+            <span></span>
+ 
+        </button>
+ 
+    </header>
+    
+    <!-- Main -->
+    <main>
+        <!-- BANNER -->
+        <section class="banner-desafios" aria-labelledby="titulo-banner">
+ 
+            <div class="conteudo-banner">
+ 
+                <h1 id="titulo-banner">
+                    Desafios
+                </h1>
+ 
+                <p>
+                    Desafios práticos pensados para afiar sua lógica, aprimorar seu portfólio e te preparar para o mercado de tecnologia. Comece a codar agora!
+                </p>
+                
+            </div>
+ 
+        </section>
+        
+        <!-- filtro -->
+         <div id="filtrar-divisao">
+                 <div class="filtrar-conteudo">
+                     <label for="filtrar"><strong>Filtrar por:</strong></label>
+                     <select name="filtrar" id="filtrar">
+                        <option id="todos" value="todos">Todos</option>
+                        <option disabled value="">-Dificuldade-</option>
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Médio</option>
+                        <option value="dificil">Díficil</option>
+                        <option disabled value="">-Linguagem-</option>
+                        <option value="csharp">C#</option>
+                        <option value="js">JavaScript</option>
+                        <option value="php">PHP</option>
+
+                </select>
+                <button id="botao-filtrar" onclick="filtrardiff()">Filtrar</button>
+            </div>
+        </div>
+        <!-- Desafios -->
+        
+        <section class="conteudo-desafios">
+            <div class="card-desafios facil csharp" id="">
+                <img src="assets/img/icones/icone-csharp.png" alt="Logo CSharp" width="50%">
+                <h2>Validador de Palíndromos</h2>
+                <p class="texto-desafio"><strong>Objetivo:</strong> Crie uma função que receba uma string e retorne true se for um palíndromo (lê-se igual de trás para frente, ignorando espaços, pontuação e diferenças entre maiúsculas/minúsculas). <br>
+                <strong>Foco:</strong> Manipulação de strings, arrays de caracteres e expressões regulares ou substituição de texto.</p>
+                <p class="texto-lang-prog">Dificuldade: <strong class="desafio-facil">Fácil</strong></p>
+                <button class="botao-desafio">Aceitar Desafio</button>
+            </div>
+            <div class="card-desafios medio php" id="">
+                <img src="assets/img/icones/icone-php.png" alt="Logo php" width="50%">
+                <h2>Sistema de Log em Arquivo</h2>
+                <p class="texto-desafio"><strong>Objetivo:</strong> Criar uma classe de Logger que receba mensagens com níveis de severidade (<code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>) e as grave em um arquivo <code>.log</code> com data e hora formatadas.<br>
+                <strong>Foco:</strong> Programação Orientada a Objetos (POO) básica e manipulação do sistema de arquivos (<code>fopen</code>, <code>fwrite</code>).</p>
+                <p class="texto-lang-prog">Dificuldade: <strong class="desafio-medio">Médio</strong></p>
+                <button class="botao-desafio">Aceitar Desafio</button>
+            </div>
+            <div class="card-desafios medio js" id="">
+                <img src="assets/img/icones/icone-js.png " alt="Logo JavaScript" width="50%">
+                <h2>Agrupamento por Propriedade</h2>
+                <p class="texto-desafio"><strong>Objetivo:</strong> Dado um array de objetos representando pessoas (ex: <code>{ nome: "Ana", idade: 25, cidade: "SP" }</code>), crie uma função que agrupe essas pessoas por cidade em um único objeto. <br>
+                <strong>Foco:</strong> Manipulação de strings, arrays de caracteres e expressões regulares ou substituição de texto.</p>
+                <p class="texto-lang-prog">Dificuldade: <strong class="desafio-medio">Médio</strong></p>
+                <button class="botao-desafio">Aceitar Desafio</button>
+            </div>
+            <div class="card-desafios dificil csharp" id="">
+                <img src="assets/img/icones/icone-csharp.png" alt="Logo CSharp" width="50%">
+                <h2>Análise Financeira com LINQ</h2>
+                <p class="texto-desafio"><strong>Objetivo:</strong> Processar uma lista populada com centenas de transações bancárias fictícias para extrair estatísticas (maior gasto do mês, média de gastos por categoria, total acumulado) sem usar laços <code>for</code> ou <code>foreach</code> <br>
+                <strong>Foco:</strong> Consultas e métodos de extensão LINQ (<code>Where</code>, <code>GroupBy</code>, <code>Select</code>, <code>Sum</code>, <code>OrderByDescending</code>), expressões lambda e delegates.</p>
+                <p class="texto-lang-prog">Dificuldade: <strong class="desafio-dificil">Díficil</strong></p>
+                <button class="botao-desafio">Aceitar Desafio</button>
+            </div>
+            <div class="card-desafios medio csharp" id="">
+                <img src="assets/img/icones/icone-csharp.png" alt="Logo CSharp" width="50%">
+                <h2>Processador de Arquivos Logs</h2>
+                <p class="texto-desafio"><strong>Objetivo:</strong> Ler um arquivo de texto (<code>.txt</code> ou <code>.csv</code>) contendo registros de logs do sistema e gerar um relatório resumido no console informando a quantidade total de erros, alertas e mensagens de sucesso. <br>
+                <strong>Foco:</strong> Leitura e escrita de arquivos (<code>System.IO.File</code>, <code>StreamReader</code>), manipulação avançada de strings (<code>Split</code>) e conceitos básicos de tratamento de dados.</p>
+                <p class="texto-lang-prog">Dificuldade: <strong class="desafio-medio">Médio</strong></p>
+                <button class="botao-desafio">Aceitar Desafio</button>
+            </div>
+            <div class="card-desafios medio js" id="">
+                <img src="assets/img/icones/icone-js.png" alt="Logo JavaScript" width="50%">
+                <h2>Sistema de Busca</h2>
+                <p class="texto-desafio"><strong>Objetivo:</strong> CEscreva uma função que receba um termo de busca e uma lista de nomes, retornando apenas os nomes que contêm a busca em qualquer parte da palavra, sem diferenciar maiúsculas de minúsculas. <br>
+                <strong>Foco:</strong> Métodos de busca em string (<code>includes</code>, <code>indexOf</code>) e filtragem dinamizada.</p>
+                <p class="texto-lang-prog">Dificuldade: <strong class="desafio-medio">Médio</strong></p>
+                <button class="botao-desafio">Aceitar Desafio</button>
+            </div>
+            <div class="card-desafios dificil php" id="">
+                <img src="assets/img/icones/icone-php.png" alt="Logo php" width="50%">
+                <h2>Roteador HTTP Simples</h2>
+                <p class="texto-desafio"><strong>Objetivo:</strong> Criar um sistema de roteamento que interprete o método HTTP e a URI da requisição para despachar a execução para a callback ou Controller correspondente, aceitando parâmetros dinâmicos na URL. <br>
+                <strong>Foco:</strong> Expressões regulares, variáveis superglobais (<code>$_SERVER</code>), rotas dinâmicas e arquitetura de software..</p>
+                <p class="texto-lang-prog">Dificuldade: <strong class="desafio-dificil">Díficil</strong></p>
+                <button class="botao-desafio">Aceitar Desafio</button>
+            </div>
+            <div class="card-desafios facil js" id="">
+                <img src="assets/img/icones/icone-js.png" alt="Logo JavaScript" width="50%">
+                <h2>Contador de Vogais</h2>
+                <p class="texto-desafio"><strong>Objetivo:</strong> Crie uma função que receba um texto e conte quantas vogais (a, e, i, o, u) ele contém, independentemente de serem maiúsculas ou minúsculas. <br>
+                <strong>Foco:</strong> Iteração em strings, expressões regulares (<code>Regex</code>) ou condicionais simples.</p>
+                <p class="texto-lang-prog">Dificuldade:  <strong class="desafio-facil">Fácil</strong></p>
+                <button class="botao-desafio">Aceitar Desafio</button>
+            </div>
+            
+        </section>
+       
+    </main>
+    <!-- Main -->
+    
+    <!-- FOOTER HTML* -->
+    
+    <footer class="rodape">
+
+        <div class="conteudo-rodape">
+
+            <!-- Marca / Logo -->
+            <a href="index.html" class="marca-rodape" aria-label="DevHook - Página inicial">
+                <span class="logo-rodape-imagem">
+                    <img src="assets/img/logo/logo-devhook.png" alt="Logo DevHook">
+                </span>
+                <span class="nome-rodape">
+                    <span class="nome-rodape-dev">Dev</span><span class="nome-rodape-hook">Hook</span>
+                </span>
+            </a>
+
+            <!-- Direitos Autorais / Reservados -->
+            <p class="direitos-rodape">
+                2026 DevHook © Todos os direitos reservados - Desenvolvido para o Projeto Integrador.
+            </p>
+
+            <!-- Menu de Navegação -->
+            <nav class="navegacao-rodape" aria-label="Navegação do rodapé">
+                <ul>
+                    <li><a href="home.html">Vagas</a></li>
+                    <li><a href="recrutador.html">Recrutadores</a></li>
+                    <li><a href="desafios.html">Desafios</a></li>
+                    <li><a href="perfil-recrutador.html">Meu perfil</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/desafios.js"></script>
+
+<!-- FOOTER CSS* -->
+</body>
+</html>

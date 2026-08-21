@@ -1,0 +1,189 @@
+/* BANNER* */
+
+.banner-desafios {
+    width: 100%;
+    min-height: 350px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(124, 58, 237, 0.35),
+            transparent 35%
+        ),
+        #1E293B;
+}
+ 
+.conteudo-banner {
+    width: min(100% - 48px, 1200px);
+    margin: 0 auto;
+}
+ 
+.conteudo-banner h1 {
+    max-width: 700px;
+    margin: 0 0 12px;
+    color: var(--cor-branco);
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+ 
+.conteudo-banner p {
+    max-width: 650px;
+    margin: 0;
+    color: #CBD5E1;
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* Main */
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-desafios{
+    margin-bottom: 10px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.desafio-facil{color:#00cc00}
+.desafio-medio{color:#e6e600}
+.desafio-dificil{color:#e62e00}
+
+/* filtro de linguagem */
+
+.filtrar-conteudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 10px 0;
+    width: 420px;
+    height: 80px;
+    background-color: var(--cor-cinza-claro);
+    border-radius: var(--raio-medio);
+}
+
+#filtrar{
+    margin: 0 10px 0 10px;
+    background-color: var(--cor-branco);
+    width: 200px;
+    height: 30px;
+    border: var(--cor-roxo);
+    border-radius: var(--raio-pequeno);
+    text-align: center;
+}
+
+#filtrar:hover{
+    border: 1px solid var(--cor-roxo-escuro);
+    transition:  var(--transicao-padrao);
+}
+
+
+#botao-filtrar{
+    width: 100px;
+    height: 30px;
+    background-color: var(--cor-verde);
+    background-color: var(--cor-roxo);
+    border-radius: var(--raio-pequeno);
+    color: var(--cor-branco);
+    border:none;
+}
+
+#botao-filtrar:hover{
+    background-color: var(--cor-verde);
+    transition:  var(--transicao-padrao);
+}
+/* centralizar o filtro */
+#filtrar-divisao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+
+/* Cards */
+
+.card-desafios{
+    gap: 8px;
+    margin: 10px;
+    padding: 15px;
+    width: 420px;
+    height: 500px;
+    background-color: var(--cor-cinza-claro);
+    color: var(--cor-texto);
+    border-radius: var(--raio-medio);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    text-align: justify;
+}
+
+.texto-desafio{
+    height: 200px;
+}
+
+.card-desafios:hover{
+    transition:  var(--transicao-padrao);
+    border: 1px solid var(--cor-roxo-escuro);
+    transform: scale(1.05);
+}
+
+.texto-lang-prog{
+    color: var(--cor-texto-secundario);
+}
+
+
+.botao-desafio{
+    margin-top: 10px;
+    width: 400px;
+    height: 60px;
+    background-color: var(--cor-roxo);
+    font-size: 1.4em;
+    color: var(--cor-branco);
+    border-radius: var(--raio-pequeno);
+    border: none;
+}
+
+.botao-desafio:hover{
+    background-color: var(--cor-verde);
+    transition:  var(--transicao-padrao);
+}
+
+/* modo pc tela pequena */
+@media (max-width: 1366px) {
+    .card-desafios{width: 400px;}
+    .botao-desafio{width: 360px;}
+}
+
+/* modo tablet*/
+@media (max-width: 1000px) {
+    .card-desafios{width: 380px;}
+    .botao-desafio{width: 340px;}
+}
+
+/* modo mobile*/
+@media (max-width: 800px) {
+    .card-desafios{width: 340px;}
+    .botao-desafio{width: 300px;}
+}
+
+/* modo mobile pequeno*/
+@media (max-width: 720px) {
+    .card-desafios{width: 460px;}
+    .botao-desafio{width: 420px;}
+}
+

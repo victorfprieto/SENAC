@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS -->
+     <link rel="stylesheet" href="arrow_function.css">
+
+</head>
+<body>
+
+    <h2>Arrow Function</h2>
+    <p>Clique para ativar o Dark Mode</p>
+
+    <button class="botao" onclick="darkMode()">Dark Mode</button>
+    <br>
+
+    <button class="botao" onclick="displayDate()">Mostrar Data</button>
+    <p id="data">Clique no botão para ver a data de hoje</p>
+    <br>
+
+    <p>
+        <label>Fahrenheit</label>
+        <input class="tempInput" id="inputFahrenheit" type="number" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+    </p>
+    <p>Celsius: <span id="outputCelsius"></span></p>
+    
+    <button class="botao" onclick="resetConverter()">Resetar</button>
+    <br>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

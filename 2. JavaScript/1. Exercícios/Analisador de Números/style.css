@@ -65,7 +65,7 @@ input[type="button"] {
     cursor: pointer;
     border: none;
     border-radius: 6px;
-    color: #121214; /* Texto escuro nos botões pastéis para contraste ideal */
+    color: #121214;
     transition: filter 0.2s, transform 0.1s;
 }
 
@@ -77,17 +77,17 @@ input[type="button"]:active {
     transform: scale(0.98);
 }
 
-/* Cores pastéis personalizadas para o Dark Mode */
+
 #botao-inserir {
-    background-color: #a7f3d0; /* Verde pastel suave */
+    background-color: #a7f3d0;
 }
 
 #botao-processar {
-    background-color: #bae6fd; /* Azul pastel suave */
+    background-color: #bae6fd;
 }
 
 #botao-limpar {
-    background-color: #fecdd3; /* Vermelho/Rosa pastel suave */
+    background-color: #fecdd3;
 }
 
 select {

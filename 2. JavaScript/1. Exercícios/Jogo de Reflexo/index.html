@@ -4,30 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste de Reflexo</title>
-
     <link rel="stylesheet" href="styles/style.css">
-
 </head>
 <body>
 
+    <!-- JANELA POP-UP -->
+    <div id="modal-instrucoes" class="modal-overlay">
+        <div class="modal-content">
+            <h2>🎮 Bem-vindo ao Teste de Reflexo!</h2>
+            <p>Descubra o quão rápido são os seus reflexos. Veja o que você pode fazer:</p>
+            <ul>
+                <li><strong>Modo Normal:</strong> Teste clássico de tempo de reação.</li>
+                <li><strong>Modo Difícil:</strong> Preste mais atenção antes de pensar em clicar!</li>
+                <li><strong>Modo Hardcore:</strong> Você possui 5 tentativas seguidas para calcular sua média de consistência.</li>
+                <li><strong>Top 5:</strong> Seus melhores recordes salvos e separados por dificuldade.</li>
+            </ul>
+            <button id="btn-fechar-modal" onclick="fecharModal()">Começar a Jogar</button>
+        </div>
+    </div>
+
     <h1>Teste de Reflexo</h1>
-    <div id="recorde">Melhor Tempo: -- ms</div>
     
     <!-- Seletor de Dificuldade -->
     <div id="dificuldade-container">
         <button id="btn-normal" class="btn-diff ativo-normal" onclick="mudarDificuldade('normal')">Normal</button>
         <button id="btn-dificil" class="btn-diff" onclick="mudarDificuldade('dificil')">Difícil</button>
+        <button id="btn-hardcore" class="btn-diff" onclick="mudarDificuldade('hardcore')">Hardcore (5x)</button>
+    </div>
+
+    <!-- Container do Top 5 Global -->
+    <div id="top5-container">
+        <h3>🏆 Top 5 Melhores Tempos</h3>
+        <ol id="lista-top5">
+            <!-- Preenchido via JavaScript -->
+        </ol>
     </div>
 
     <div id="game-box">Clique em Start</div>
     
     <button id="btn-start">Start</button>
     
+    <!-- Histórico do Modo Hardcore -->
+    <div id="historico-container" style="display: none;">
+        <h3>Últimas Tentativas (Hardcore):</h3>
+        <ul id="lista-historico"></ul>
+    </div>
+
     <div id="resultado"></div>
 
-    <script src="js/script.js">
-        
-    </script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

@@ -3,345 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteador de Classes - World of Warcraft TBC</title>
-
-    <!-- FONTS -->
+    <title>Roleta de Classes - WoW Classic</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700;900&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Roleta de Classes</h1>
+            <p>World of Warcraft Classic</p>
+        </header>
 
-    <header>
+        <nav class="filters">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="tank">Tank</button>
+            <button class="filter-btn" data-filter="healer">Healer</button>
+            <button class="filter-btn" data-filter="melee-dps">Melee DPS</button>
+            <button class="filter-btn" data-filter="ranged-dps">Ranged DPS</button>
+            <button class="filter-btn skull-btn" id="skullModeBtn" title="Modo Eliminação (Hardcore)">💀</button>
+        </nav>
 
-        <h1>Sorteador de Classes - World of Warcraft TBC</h1>
-
-        <div class="top-controls">
-
-            <button class="action-btn general" id="btnGeneral" onclick="spinFaction('ALL')">Sorteio Geral</button>
-            <button class="action-btn alliance" id="btnAlliance" onclick="spinFaction('Alliance')">Sorteio Aliança</button>
-            <button class="action-btn horde" id="btnHorde" onclick="spinFaction('Horde')">Sorteio Horda</button>
-
-        </div>
-    </header>
-
-    <main class="main-content">
-        <div class="wheels-container">
-            <div class="wheel-card">
-
+        <main class="roulette-section">
+            <div class="wheel-wrapper">
                 <div class="pointer"></div>
-
-                <div class="wheel-wrapper">
-                    <canvas id="classWheel" width="280" height="280"></canvas>
+                <div class="wheel-container" id="wheelContainer">
+                    <svg id="wheelSvg" viewBox="0 0 500 500"></svg>
                 </div>
-                
-                <button class="spin-btn" id="btnClass" onclick="spinClass()">Girar Classe</button>
-
+                <div class="wheel-center-cap"></div>
             </div>
 
-            <div class="wheel-card">
+            <button id="spinBtn" class="spin-btn">Girar Roleta</button>
+        </main>
 
-                <div class="pointer"></div>
-
-                <div class="wheel-wrapper">
-
-                    <canvas id="raceWheel" width="280" height="280"></canvas>
-
-                </div>
-
-                <button class="spin-btn" id="btnRace" onclick="spinRace()" disabled>Girar Raça</button>
-
-            </div>
+        <div class="result-container" id="resultContainer">
+            <span class="result-label" id="resultLabel">Sua classe é:</span>
+            <span class="result-class" id="resultClass">-</span>
         </div>
 
-        <div class="final-result-card" id="finalResult">
-
-            <span class="placeholder">Escolha um tipo de sorteio acima</span>
-
+        <!-- Painel para exibir as classes eliminadas no Modo Caveira -->
+        <div class="eliminated-container hidden" id="eliminatedContainer">
+            <span class="eliminated-title">Classes Eliminadas 💀</span>
+            <div class="eliminated-list" id="eliminatedList"></div>
         </div>
+    </div>
 
-    </main>
-
-    <script>
-
-        // Listas de raças por facção
-        var ALLIANCE_RACES = ["Human", "Dwarf", "Night Elf", "Gnome", "Draenei"];
-        var HORDE_RACES = ["Orc", "Undead", "Tauren", "Troll", "Blood Elf"];
-
-        // Lista de classes e cores e suas raças disponíveis
-        var CLASSES = [
-            { name: "Warrior", color: "#C79C6E", races: ["Human", "Dwarf", "Night Elf", "Gnome", "Draenei", "Orc", "Undead", "Tauren", "Troll"] },
-            { name: "Paladin", color: "#F58CBA", races: ["Human", "Dwarf", "Draenei", "Blood Elf"] },
-            { name: "Hunter", color: "#ABD473", races: ["Dwarf", "Night Elf", "Draenei", "Orc", "Tauren", "Troll", "Blood Elf"] },
-            { name: "Rogue", color: "#FFF569", races: ["Human", "Dwarf", "Night Elf", "Gnome", "Orc", "Undead", "Troll", "Blood Elf"] },
-            { name: "Priest", color: "#FFFFFF", races: ["Human", "Dwarf", "Night Elf", "Draenei", "Undead", "Troll", "Blood Elf"] },
-            { name: "Shaman", color: "#0070DE", races: ["Draenei", "Orc", "Tauren", "Troll"] },
-            { name: "Mage", color: "#69CCF0", races: ["Human", "Gnome", "Draenei", "Undead", "Troll", "Blood Elf"] },
-            { name: "Warlock", color: "#9482C9", races: ["Human", "Gnome", "Orc", "Undead", "Blood Elf"] },
-            { name: "Druid", color: "#FF7D0A", races: ["Night Elf", "Tauren"] }
-        ];
-
-        // Variaveis de controle
-        var selectedFaction = 'ALL';
-        var availableClasses = [];
-        var currentClass = null;
-        var selectedRaceName = null;
-        var classRotation = 0;
-        var raceRotation = 0;
-
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
-        }
-
-
-        function getValidRacesForClass(classObj) {
-            var validRaces = [];
-            
-            for (var i = 0; i < classObj.races.length; i++) {
-            var race = classObj.races[i];
-            
-            if (selectedFaction === 'Alliance') {
-                if (ALLIANCE_RACES.indexOf(race) !== -1) {
-                validRaces.push(race);
-                }
-            } else if (selectedFaction === 'Horde') {
-                if (HORDE_RACES.indexOf(race) !== -1) {
-                validRaces.push(race);
-                }
-            } else {
-                validRaces.push(race);
-            }
-            }
-            
-            return validRaces;
-        }
-
-        // Filtro da facção selecionada
-        function applyFactionFilter(faction) {
-            selectedFaction = faction;
-            availableClasses = [];
-
-            for (var i = 0; i < CLASSES.length; i++) {
-            var c = CLASSES[i];
-            var racesValidas = getValidRacesForClass(c);
-            if (racesValidas.length > 0) {
-                availableClasses.push(c);
-            }
-            }
-
-            currentClass = null;
-            selectedRaceName = null;
-            
-            var btnRace = document.getElementById('btnRace');
-            btnRace.disabled = true;
-
-            updateResultUI();
-
-            drawClassWheel();
-            drawRaceWheelWaiting();
-        }
-
-        // Desativar ou ativar botoes
-        function setButtonsDisabled(disabled) {
-            document.getElementById('btnClass').disabled = disabled;
-            document.getElementById('btnRace').disabled = disabled || (currentClass === null);
-            document.getElementById('btnGeneral').disabled = disabled;
-            document.getElementById('btnAlliance').disabled = disabled;
-            document.getElementById('btnHorde').disabled = disabled;
-        }
-
-        // Roleta de classes
-        function drawClassWheel() {
-            var canvas = document.getElementById('classWheel');
-            var ctx = canvas.getContext('2d');
-            var numSlices = availableClasses.length;
-            var sliceAngle = (2 * Math.PI) / numSlices;
-            var radius = canvas.width / 2;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (var i = 0; i < availableClasses.length; i++) {
-            var item = availableClasses[i];
-            var angle = i * sliceAngle - Math.PI / 2;
-
-            ctx.beginPath();
-            ctx.fillStyle = item.color;
-            ctx.moveTo(radius, radius);
-            ctx.arc(radius, radius, radius, angle, angle + sliceAngle);
-            ctx.closePath();
-            ctx.fill();
-
-            ctx.save();
-            ctx.translate(radius, radius);
-            ctx.rotate(angle + sliceAngle / 2);
-            ctx.textAlign = "right";
-            
-            if (item.color === "#FFFFFF" || item.color === "#FFF569") {
-                ctx.fillStyle = "#000000";
-            } else {
-                ctx.fillStyle = "#FFFFFF";
-            }
-            
-            ctx.font = "900 13px 'Plus Jakarta Sans', sans-serif";
-            ctx.fillText(item.name, radius - 16, 4);
-            ctx.restore();
-            }
-        }
-
-        // Desenhar roleta de racas esperando
-        function drawRaceWheelWaiting() {
-            var canvas = document.getElementById('raceWheel');
-            var ctx = canvas.getContext('2d');
-            var radius = canvas.width / 2;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            ctx.beginPath();
-            ctx.fillStyle = "#222630";
-            ctx.moveTo(radius, radius);
-            ctx.arc(radius, radius, radius, -Math.PI / 2, (3 * Math.PI) / 2);
-            ctx.closePath();
-            ctx.fill();
-
-            ctx.save();
-            ctx.translate(radius, radius);
-            ctx.textAlign = "right";
-            ctx.fillStyle = "#FFFFFF";
-            ctx.font = "900 13px 'Plus Jakarta Sans', sans-serif";
-            ctx.fillText("Aguardando...", radius - 16, 4);
-            ctx.restore();
-        }
-
-        // Desenhar roleta de racas ativas
-        function drawRaceWheel(races) {
-            var canvas = document.getElementById('raceWheel');
-            var ctx = canvas.getContext('2d');
-            var numSlices = races.length;
-            var sliceAngle = (2 * Math.PI) / numSlices;
-            var radius = canvas.width / 2;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (var i = 0; i < races.length; i++) {
-            var race = races[i];
-            var angle = i * sliceAngle - Math.PI / 2;
-
-            ctx.beginPath();
-            if (i % 2 === 0) {
-                ctx.fillStyle = "#2a2f3d";
-            } else {
-                ctx.fillStyle = "#1d212b";
-            }
-            
-            ctx.moveTo(radius, radius);
-            ctx.arc(radius, radius, radius, angle, angle + sliceAngle);
-            ctx.closePath();
-            ctx.fill();
-
-            ctx.save();
-            ctx.translate(radius, radius);
-            ctx.rotate(angle + sliceAngle / 2);
-            ctx.textAlign = "right";
-            ctx.fillStyle = "#FFFFFF";
-            ctx.font = "900 13px 'Plus Jakarta Sans', sans-serif";
-            ctx.fillText(race, radius - 16, 4);
-            ctx.restore();
-            }
-        }
-
-        // Atualizar o texto do resultado final
-        function updateResultUI() {
-            var display = document.getElementById('finalResult');
-            
-            if (currentClass !== null && selectedRaceName !== null) {
-            display.innerHTML = '🏆 <span style="color: ' + currentClass.color + '">' + currentClass.name + '</span> - <span style="color: ' + currentClass.color + '">' + selectedRaceName + '</span> 🏆';
-            } else if (currentClass !== null) {
-            display.innerHTML = '🏆 <span style="color: ' + currentClass.color + '">' + currentClass.name + '</span> - <span class="placeholder">Gire a Raça...</span> 🏆';
-            } else {
-            display.innerHTML = '<span class="placeholder">Escolha um tipo de sorteio acima</span>';
-            }
-        }
-
-        // Girar roleta de classe
-        function spinClass(onComplete) {
-            var classCanvas = document.getElementById('classWheel');
-            setButtonsDisabled(true);
-            selectedRaceName = null;
-
-            var selectedIndex = getRandomInt(availableClasses.length);
-            currentClass = availableClasses[selectedIndex];
-
-            var sliceAngle = 360 / availableClasses.length;
-            var extraDegrees = 360 - (selectedIndex * sliceAngle) - (sliceAngle / 2);
-            var extraSpins = (4 + getRandomInt(3)) * 360;
-            
-            classRotation = classRotation + extraSpins + extraDegrees - (classRotation % 360);
-            
-            classCanvas.style.transform = "rotate(" + classRotation + "deg)";
-
-            setTimeout(function() {
-            updateResultUI();
-            var races = getValidRacesForClass(currentClass);
-            drawRaceWheel(races);
-            setButtonsDisabled(false);
-            
-            if (onComplete) {
-                onComplete();
-            }
-            }, 4000);
-        }
-
-        // Girar roleta de raca
-        function spinRace() {
-            var raceCanvas = document.getElementById('raceWheel');
-            setButtonsDisabled(true);
-
-            var races = getValidRacesForClass(currentClass);
-            var selectedIndex = getRandomInt(races.length);
-            selectedRaceName = races[selectedIndex];
-
-            var sliceAngle = 360 / races.length;
-            var extraDegrees = 360 - (selectedIndex * sliceAngle) - (sliceAngle / 2);
-            var extraSpins = (4 + getRandomInt(3)) * 360;
-            
-            raceRotation = raceRotation + extraSpins + extraDegrees - (raceRotation % 360);
-
-            raceCanvas.style.transform = "rotate(" + raceRotation + "deg)";
-
-            setTimeout(function() {
-            updateResultUI();
-            setButtonsDisabled(false);
-            }, 4000);
-        }
-
-        // Sorteio de Facção (gira classe e raca automaticamente)
-        function spinFaction(faction) {
-            applyFactionFilter(faction);
-            spinClass(function() {
-            setTimeout(function() {
-                spinRace();
-            }, 500);
-            });
-        }
-
-        // Iniciar na opcao Geral
-        applyFactionFilter('ALL');
-
-    </script>
-
-    <footer>
-        <div>© 2026 Desenvolvido por Victor F Prieto.</div>
-        <a href="https://github.com/victorfprieto" target="_blank" rel="noopener noreferrer" class="footer-link">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-            </svg>
-            GitHub
-        </a>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>

@@ -14,7 +14,6 @@ const wheelSvg = document.getElementById('wheelSvg');
 const wheelContainer = document.getElementById('wheelContainer');
 const spinBtn = document.getElementById('spinBtn');
 const filterBtns = document.querySelectorAll('.filter-btn');
-const skullBtn = document.getElementById('skullModeBtn');
 const pointer = document.querySelector('.pointer');
 const resultContainer = document.getElementById('resultContainer');
 const resultLabel = document.getElementById('resultLabel');
@@ -41,8 +40,10 @@ function resetGame() {
     
     if (isSkullMode) {
         eliminatedContainer.classList.remove('hidden');
+        spinBtn.textContent = 'Eliminar Uma Classe';
     } else {
         eliminatedContainer.classList.add('hidden');
+        spinBtn.textContent = 'Girar Roleta';
     }
 
     drawWheel();
@@ -57,17 +58,40 @@ function drawWheel() {
     resultContainer.classList.remove('visible');
 
     const numSlices = activeClasses.length;
-    
-    // Se sobrar apenas 1 classe no modo eliminação
-    if (numSlices === 1 && isSkullMode) {
-        drawWinnerCap(activeClasses[0]);
-        return;
-    }
-
-    const sliceAngle = 360 / numSlices;
     const center = 250;
     const radius = 240;
 
+    // Caso especial: se sobrar apenas 1 classe no Modo 💀
+    if (numSlices === 1) {
+        const winner = activeClasses[0];
+
+        // Desenha o círculo de fundo completo
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', center);
+        circle.setAttribute('cy', center);
+        circle.setAttribute('r', radius);
+        circle.setAttribute('fill', 'var(--wheel-bg-1)');
+        circle.setAttribute('class', 'slice');
+        wheelSvg.appendChild(circle);
+
+        // Alinha o texto na vertical do topo, apontando exatamente para o ponteiro
+        const textGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        textGroup.setAttribute('transform', `rotate(270, ${center}, ${center})`);
+
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', center + radius - 18);
+        text.setAttribute('y', center);
+        text.setAttribute('class', `slice-text ${winner.cssClass}`);
+        text.setAttribute('font-size', '22px');
+        text.textContent = winner.name;
+
+        textGroup.appendChild(text);
+        wheelSvg.appendChild(textGroup);
+        return;
+    }
+
+    // Desenha fatias normais (2 ou mais classes)
+    const sliceAngle = 360 / numSlices;
     let fontSize = 22;
     if (numSlices > 6) fontSize = 18;
     if (numSlices > 8) fontSize = 16;
@@ -112,34 +136,11 @@ function drawWheel() {
     });
 }
 
-// Renderiza a roleta cheia com a vencedora final do modo caveira
-function drawWinnerCap(winnerClass) {
-    const center = 250;
-    const radius = 240;
-
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', center);
-    circle.setAttribute('cy', center);
-    circle.setAttribute('r', radius);
-    circle.setAttribute('fill', 'var(--wheel-bg-1)');
-    circle.setAttribute('class', 'slice');
-    wheelSvg.appendChild(circle);
-
-    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    text.setAttribute('x', center);
-    text.setAttribute('y', center);
-    text.setAttribute('text-anchor', 'middle');
-    text.setAttribute('dominant-baseline', 'middle');
-    text.setAttribute('class', `slice-text ${winnerClass.cssClass}`);
-    text.setAttribute('font-size', '32px');
-    text.textContent = `👑 ${winnerClass.name}`;
-    wheelSvg.appendChild(text);
-}
-
 function spin() {
     if (isSpinning) return;
 
-    if (activeClasses.length <= 1 && isSkullMode) {
+    // Se já temos a vencedora final no modo 💀, o clique reinicia a partida
+    if (isSkullMode && activeClasses.length <= 1) {
         resetGame();
         return;
     }
@@ -169,32 +170,34 @@ function spin() {
         spinBtn.disabled = false;
 
         if (isSkullMode) {
-            // Elimina a classe sorteada
+            // Elimina a classe sorteada da lista ativa
             activeClasses.splice(selectedIndex, 1);
             eliminatedClasses.push(selectedClass);
 
-            // Adiciona na lista visual de eliminadas
+            // Adiciona na lista visual de eliminadas (tags tachadas)
             const tag = document.createElement('span');
             tag.className = `eliminated-tag ${selectedClass.cssClass}`;
             tag.textContent = selectedClass.name;
             eliminatedList.appendChild(tag);
 
-            resultLabel.textContent = 'Classe eliminada 💀:';
-            resultClass.textContent = selectedClass.name;
-            resultClass.className = `result-class ${selectedClass.cssClass}`;
-            resultContainer.classList.add('visible');
-
-            // Se sobrar apenas 1, ela é a grande campeã
+            // Se restar exatamente 1 classe ativa após esta eliminação
             if (activeClasses.length === 1) {
                 const winner = activeClasses[0];
-                setTimeout(() => {
-                    resultLabel.textContent = '🏆 A Grande Vencedora é:';
-                    resultClass.textContent = winner.name;
-                    resultClass.className = `result-class ${winner.cssClass}`;
-                    spinBtn.textContent = 'Reiniciar Modo 💀';
-                    drawWheel();
-                }, 1200);
+
+                // Atualiza o painel inferior para destacar a vencedora
+                resultLabel.textContent = '🏆 A Grande Vencedora é:';
+                resultClass.textContent = winner.name;
+                resultClass.className = `result-class ${winner.cssClass}`;
+                resultContainer.classList.add('visible');
+
+                spinBtn.textContent = 'Reiniciar Modo 💀';
+                drawWheel(); // Desenha a roleta com o vencedor perfeitamente apontado para cima
             } else {
+                resultLabel.textContent = 'Classe eliminada 💀:';
+                resultClass.textContent = selectedClass.name;
+                resultClass.className = `result-class ${selectedClass.cssClass}`;
+                resultContainer.classList.add('visible');
+
                 drawWheel();
             }
         } else {
@@ -219,12 +222,10 @@ filterBtns.forEach(btn => {
             isSkullMode = true;
             pointer.classList.add('skull-mode');
             spinBtn.classList.add('skull-mode');
-            spinBtn.textContent = 'Eliminar Uma Classe';
         } else {
             isSkullMode = false;
             pointer.classList.remove('skull-mode');
             spinBtn.classList.remove('skull-mode');
-            spinBtn.textContent = 'Girar Roleta';
             currentFilter = btn.dataset.filter;
         }
 

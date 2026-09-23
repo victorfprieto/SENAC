@@ -13,19 +13,58 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem 1rem;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 0.5s ease-in-out;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.45);
+    pointer-events: none;
+    z-index: -1;
+}
+
+body.bg-wow {
+    background-image: url('img/wow-fundo.png'); 
+}
+body.bg-ow {
+    background-image: url('img/ow-fundo.jpg'); 
+}
+body.bg-diablo {
+    background-image: url('img/diablo-fundo.jpg');
+}
+body.bg-ssbu {
+    background-image: url('img/ssbu-fundo.png');
+}
+body.bg-re2 {
+    background-image: url('img/re2-fundo.jpg');
+}
+body.bg-silenth {
+    background-image: url('img/silenth-fundo.jpg');
 }
 
 form {
     width: 100%;
     max-width: 520px;
+    z-index: 1;
 }
 
 .container {
-    background-color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 24px;
     padding: 2.5rem;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
 }
 
 .jogo {
@@ -97,7 +136,6 @@ select:focus {
     color: #475569;
 }
 
-/* Estilização do título gerado pelo PHP (span) */
 .resposta span {
     display: inline-block;
     font-family: 'Space Grotesk', sans-serif;
@@ -109,14 +147,6 @@ select:focus {
     letter-spacing: -0.01em;
 }
 
-/* Espaçamento limpo caso queira remover alguns <br> do PHP futuramente, mas lida bem com eles */
-.resposta br {
-    content: "";
-    display: block;
-    margin: 0.25rem 0;
-}
-
-/* Tamanho da imagem */
 .resposta img {
     width: 100%;
     height: 240px;

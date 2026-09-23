@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0f172a; 
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+form {
+    width: 100%;
+    max-width: 520px;
+}
+
+.container {
+    background-color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+}
+
+.jogo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.jogo h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+}
+
+select {
+    width: 100%;
+    background-color: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 0.95rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #0f172a;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+select:hover {
+    border-color: #cbd5e1;
+}
+
+select:focus {
+    border-color: #4f46e5;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.botao {
+    background-color: #4f46e5;
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 0.95rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.botao:hover {
+    background-color: #4338ca;
+    transform: translateY(-1px);
+}
+
+.botao:active {
+    transform: translateY(0);
+}
+
+.resposta {
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #475569;
+}
+
+/* Estilização do título gerado pelo PHP (span) */
+.resposta span {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+/* Espaçamento limpo caso queira remover alguns <br> do PHP futuramente, mas lida bem com eles */
+.resposta br {
+    content: "";
+    display: block;
+    margin: 0.25rem 0;
+}
+
+/* Tamanho da imagem */
+.resposta img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    background-color: #f1f5f9;
+    border-radius: 14px;
+    margin-top: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.75rem;
+    }
+    .resposta img {
+        height: 200px;
+    }
+}

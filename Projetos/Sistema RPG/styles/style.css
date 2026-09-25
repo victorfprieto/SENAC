@@ -1,0 +1,218 @@
+:root {
+    --bg-color: #0b0d12;
+    --card-bg: #141821;
+    --card-hover: #1c222e;
+    --border-color: #262f40;
+    --accent-color: #f0c341; /* Dourado mais vivo */
+    --accent-glow: rgba(240, 195, 65, 0.15);
+    --text-main: #f0f2f5;
+    --text-muted: #8c96a6;
+    
+    /* Cores de status */
+    --c-failure: #e05555;
+    --c-partial: #e0a83b;
+    --c-success: #42b883;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Cabeçalho */
+.game-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0 0 8px 0;
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+h2 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+}
+
+/* Grid de Atributos */
+.attributes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+details {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+details:hover {
+    border-color: rgba(240, 195, 65, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+summary {
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 16px 20px;
+    cursor: pointer;
+    color: var(--text-main);
+    user-select: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+summary::-webkit-details-marker {
+    display: none; /* Remove a setinha padrão feia em alguns navegadores */
+}
+
+/* Criando uma setinha customizada moderna */
+summary::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: 400;
+    transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+summary:hover {
+    background-color: var(--card-hover);
+}
+
+details[open] summary {
+    background-color: var(--card-hover);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.attr-name {
+    letter-spacing: 0.5px;
+}
+
+.attr-dice {
+    font-size: 0.8rem;
+    background: rgba(240, 195, 65, 0.1);
+    color: var(--accent-color);
+    padding: 3px 8px;
+    border-radius: 20px;
+    border: 1px solid rgba(240, 195, 65, 0.2);
+}
+
+.details-content {
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+details p {
+    margin: 0 0 8px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+details p:last-child {
+    margin-bottom: 0;
+}
+
+.rule-highlight {
+    color: var(--text-main) !important;
+    font-size: 0.9rem !important;
+}
+
+/* Seção de Testes */
+.core-mechanic-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.results-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.result-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 16px 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.result-card .range {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.result-card .outcome {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Cores específicas para os resultados */
+.result-card.failure { border-bottom: 3px solid var(--c-failure); }
+.result-card.failure .range { color: var(--c-failure); }
+
+.result-card.partial { border-bottom: 3px solid var(--c-partial); }
+.result-card.partial .range { color: var(--c-partial); }
+
+.result-card.success { border-bottom: 3px solid var(--c-success); }
+.result-card.success .range { color: var(--c-success); }
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .results-list {
+        grid-template-columns: 1fr;
+    }
+}

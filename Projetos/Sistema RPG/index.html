@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema RPG - Regras</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <main class="container">
+        <header class="game-header">
+            <h1>Sistema de RPG</h1>
+            <p class="subtitle">Guia rápido de regras e atributos</p>
+        </header>
+
+        <section>
+            <h2>Atributos Principais</h2>
+            <div class="attributes-grid">
+                <details>
+                    <summary>
+                        <span class="attr-name">Poder</span>
+                        <span class="attr-dice">1d6</span>
+                    </summary>
+                    <div class="details-content">
+                        <p>Representa a capacidade ofensiva do personagem (físico, elemental ou uso de armas).</p>
+                        <p class="rule-highlight"><strong>Teste:</strong> 1d6 + Poder</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="attr-name">Foco</span>
+                        <span class="attr-dice">1d12</span>
+                    </summary>
+                    <div class="details-content">
+                        <p>Representa precisão, coordenação e reflexos físicos.</p>
+                        <p class="rule-highlight"><strong>Teste:</strong> 1d12 + Foco</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="attr-name">Influência</span>
+                        <span class="attr-dice">1d12</span>
+                    </summary>
+                    <div class="details-content">
+                        <p>Representa presença social, comunicação e manipulação.</p>
+                        <p class="rule-highlight"><strong>Teste:</strong> 1d12 + Influência</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="attr-name">Espírito</span>
+                        <span class="attr-dice">1d12</span>
+                    </summary>
+                    <div class="details-content">
+                        <p>Representa cura, força interior e instinto.</p>
+                        <p class="rule-highlight"><strong>Teste:</strong> 1d12 + Espírito</p>
+                        <p class="rule-highlight"><strong>Cura:</strong> 1d6 + Espírito</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="attr-name">Tenacidade</span>
+                        <span class="attr-dice">1d12</span>
+                    </summary>
+                    <div class="details-content">
+                        <p>Representa resistência física e mental (medo, veneno, sangramento, etc).</p>
+                        <p class="rule-highlight"><strong>Teste:</strong> 1d12 + Tenacidade</p>
+                        <p class="rule-highlight"><strong>Vida adicional:</strong> +1 PV por ponto.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        <span class="attr-name">Inspiração</span>
+                        <span class="attr-dice">Recurso</span>
+                    </summary>
+                    <div class="details-content">
+                        <p>Recurso narrativo que premia boas escolhas e pode ser usado como moeda para mudar alguns resultados.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="tests-section">
+            <h2>Resolução de Testes</h2>
+            <div class="core-mechanic-card">
+                <p><strong>Rolagem base:</strong> 1d12 + Atributo</p>
+            </div>
+            
+            <h3>Margem de Sucesso</h3>
+            <ul class="results-list">
+                <li class="result-card failure">
+                    <span class="range">1 - 6</span>
+                    <span class="outcome">Fracasso</span>
+                </li>
+                <li class="result-card partial">
+                    <span class="range">7 - 10</span>
+                    <span class="outcome">Sucesso Parcial</span>
+                </li>
+                <li class="result-card success">
+                    <span class="range">11 - 12+</span>
+                    <span class="outcome">Sucesso Total</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>

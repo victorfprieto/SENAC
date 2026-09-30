@@ -10,10 +10,9 @@
     <h1>Problema "senha_fixa":</h1>
 
     <?php
-        // Array que guarda as senhas ja digitadas
+        // GUARDANDO AS SENHAS
         $senhas = [];
  
-        // Se o formulario foi enviado, pega as senhas que chegaram
         if (isset($_POST['senha']))
         {
             $senhas = $_POST['senha'];
@@ -25,7 +24,6 @@
  
         echo '<form method="post">';
  
-        // Mostra cada senha ja digitada
         while ($idx < count($senhas))
         {
             echo $texto;
@@ -43,7 +41,7 @@
             $idx++;
         }
  
-        // Se ainda nao acertou a senha, cria um novo campo
+        // FEEDBACK DE SENHA ERRADA
         if ($acertou == false)
         {
             echo $texto;
@@ -56,7 +54,7 @@
             echo '</form>';
             echo 'Acesso permitido!</br></br>';
  
-            // Botao que envia o formulario vazio: a pagina recomeca do zero
+            // RESET DA PÁGINA
             echo '<form method="post">';
             echo '<input type="submit" value="Reiniciar">';
             echo '</form>';

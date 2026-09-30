@@ -10,10 +10,9 @@
     <h1>Problema "media_idade":</h1>
 
     <?php
-        // Array que guarda as idades ja digitadas
+        
         $idades = [];
  
-        // Se o formulario foi enviado, pega as idades que chegaram
         if (isset($_POST['idade']))
         {
             $idades = $_POST['idade'];
@@ -24,7 +23,6 @@
         $terminou = false;
         $idx = 0;
  
-        // Se clicou no botao Calcular, termina
         if (isset($_POST['acao']) and $_POST['acao'] == 'Calcular')
         {
             $terminou = true;
@@ -33,17 +31,15 @@
         echo 'Digite as idades:</br>';
         echo '<form method="post">';
  
-        // Percorre todas as idades ja digitadas
         while ($idx < count($idades))
         {
-            // Ignora campo vazio
             if ($idades[$idx] != '')
             {
                 echo '<input type="number" name="idade[]" value="' . $idades[$idx] . '" readonly></br>';
  
                 if ($idades[$idx] < 0)
                 {
-                    // Idade negativa: termina (ela nao entra nos calculos)
+                    // TERMINA SE DIGITAR NÚMERO NEGATIVO
                     $terminou = true;
                 }
                 else
@@ -56,7 +52,6 @@
             $idx++;
         }
  
-        // Se ainda nao terminou, cria um novo campo e os botoes
         if ($terminou == false)
         {
             echo '<input type="number" name="idade[]" required autofocus> ';
@@ -81,7 +76,7 @@
  
             echo '</br></br>';
  
-            // Botao que envia o formulario vazio: a pagina recomeca do zero
+            // RESET
             echo '<form method="post">';
             echo '<input type="submit" value="Reiniciar">';
             echo '</form>';

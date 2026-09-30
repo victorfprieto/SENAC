@@ -14,7 +14,6 @@
         $xs = [];
         $ys = [];
  
-        // VALORES DO FORM
         if (isset($_POST['x'])) {
             $xs = $_POST['x'];
             $ys = $_POST['y'];
@@ -26,7 +25,6 @@
  
         echo '<form method="post">';
  
-        // PAR + RESULTADO
         while ($idx < count($xs)) {
             echo $texto . '</br>';
             echo 'X: <input type="number" name="x[]" value="' . $xs[$idx] . '" readonly> ';

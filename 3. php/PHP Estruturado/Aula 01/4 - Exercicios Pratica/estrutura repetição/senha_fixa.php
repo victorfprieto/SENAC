@@ -10,7 +10,7 @@
     <h1>Problema "senha_fixa":</h1>
 
     <?php
-        // GUARDANDO AS SENHAS
+    
         $senhas = [];
  
         if (isset($_POST['senha']))

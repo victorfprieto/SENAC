@@ -1,7 +1,3 @@
-<?php 
-    require_once "validador_acesso.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +21,7 @@
     </nav>
 
     <div class="container">
-        
+
         <div class="row">
 
             <div class="card-home">

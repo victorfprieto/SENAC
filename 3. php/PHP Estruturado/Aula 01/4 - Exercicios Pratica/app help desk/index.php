@@ -317,7 +317,7 @@
 
                     <div class="card-body">
 
-                        <form action="" method="GET">
+                        <form action="valida_login.php" method="GET">
 
                             <div class="form-group">
 

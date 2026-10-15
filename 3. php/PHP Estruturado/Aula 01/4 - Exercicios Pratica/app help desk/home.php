@@ -1,3 +1,7 @@
+<?php 
+    require_once "validador_acesso.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,21 +145,24 @@
             opacity: 1;
         }
     </style>
-    
+
 </head>
 <body>
 
     <nav>
         <div class="nav-brand-group">
             <a href="#" class="nav-brand">
-                <img src="img\help-desk-logo.png" alt="Logo Help Desk">
+                <img src="img/help-desk-logo.png" alt="Logo Help Desk">
             </a>
             <h1>App Help Desk</h1>
         </div>
 
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="display: flex; align-items: center; gap: 20px;">
+            <li class="item" style="color: #3333cc; font-size: 0.95rem; font-weight: 500;">
+                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>!
+            </li>
             <li class="item">
-                <a href="index.php" class="nav-link">Sair</a>
+                <a href="logoff.php" class="nav-link">Sair</a>
             </li>
         </ul>
     </nav>
@@ -171,12 +178,12 @@
                         <div class="row">
                             <div>
                                 <a href="abrir_chamado.php">
-                                    <img src="img\abrir-chamado.png" alt="Imagem de abrir chamado">
+                                    <img src="img/abrir-chamado.png" alt="Imagem de abrir chamado">
                                 </a>
                             </div>
                             <div>
                                 <a href="consultar_chamado.php">
-                                    <img src="img\consultar-chamado.png" alt="Imagem de consultar chamado">
+                                    <img src="img/consultar-chamado.png" alt="Imagem de consultar chamado">
                                 </a>
                             </div>
                         </div>
@@ -185,6 +192,5 @@
             </div>
         </div>
     </div>
-    
 </body>
 </html>

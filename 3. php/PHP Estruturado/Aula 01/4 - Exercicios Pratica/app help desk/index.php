@@ -82,6 +82,11 @@
             border-bottom: 1px solid #f1f5f9;
         }
 
+        span {
+            color: #3333cc;
+            font-weight: bolder;
+        }
+
         .card-body {
             padding: 24px;
         }
@@ -160,7 +165,7 @@
             <div class="card-login">
                 <div class="card">
                     <div class="card-header">
-                        Login
+                        Faça o seu <span>Login</span>!
                     </div>
                     <div class="card-body">
                         

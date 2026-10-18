@@ -49,7 +49,7 @@
         }
 
         .wrap {
-            max-width: 1000px;
+            max-width: 760px;
             margin: 0 auto
         }
 
@@ -83,19 +83,6 @@
             color: var(--mute);
             margin: 10px auto 0;
             max-width: 58ch
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-            gap: 22px;
-            align-items: start
-        }
-
-        @media(max-width:780px) {
-            .grid {
-                grid-template-columns: 1fr
-            }
         }
 
         .card {
@@ -233,61 +220,6 @@
             color: #1b1203
         }
 
-        .live h3 {
-            font-size: 17px;
-            color: var(--gold);
-            margin-bottom: 4px
-        }
-
-        .live p.s {
-            color: var(--mute);
-            font-size: 14px;
-            margin: 0 0 16px
-        }
-
-        .row {
-            margin-bottom: 13px
-        }
-
-        .row div {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            margin-bottom: 5px;
-            gap: 8px
-        }
-
-        .row span {
-            color: var(--c);
-            font-weight: 600
-        }
-
-        .row b {
-            font-variant-numeric: tabular-nums
-        }
-
-        .bar {
-            height: 9px;
-            background: #06070b;
-            border: 1px solid #000;
-            border-radius: 5px;
-            overflow: hidden
-        }
-
-        .bar i {
-            display: block;
-            height: 100%;
-            background: var(--c);
-            border-radius: 5px;
-            opacity: .65;
-            transition: width .45s
-        }
-
-        .row.top .bar i {
-            opacity: 1;
-            box-shadow: 0 0 12px var(--c)
-        }
-
         .tie {
             border-left: 3px solid var(--gold);
             padding: 2px 0 2px 12px;
@@ -325,6 +257,44 @@
         .item .pc {
             color: var(--gold);
             font-weight: 600
+        }
+
+        .mt {
+            color: var(--gold);
+            font-size: 17px;
+            margin: 0 0 4px
+        }
+
+        .why {
+            margin: 0 0 22px;
+            padding: 0;
+            list-style: none
+        }
+
+        .why li {
+            position: relative;
+            padding: 10px 0 10px 24px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .why li:last-child {
+            border: 0
+        }
+
+        .why li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            top: 12px;
+            font-size: 12px;
+            color: var(--c)
+        }
+
+        .why small {
+            display: block;
+            color: var(--mute);
+            font-size: 13px;
+            margin-bottom: 2px
         }
 
         .res {
@@ -396,13 +366,10 @@
         <header>
             <span class="kicker">World of Warcraft Forever</span>
             <h1>Descubra o seu pick</h1>
-            <p>Escolha sua função e responda perguntas feitas para ela. A compatibilidade com cada spec é recalculada a
-                cada clique, e o resultado final nunca termina empatado no topo.</p>
+            <p>Escolha sua função e responda perguntas feitas para ela. O resultado só aparece no final, com os motivos
+                da recomendação, e nunca termina empatado no topo.</p>
         </header>
-        <div class="grid">
-            <main class="card" id="main" aria-live="polite"></main>
-            <aside class="card live" id="live"></aside>
-        </div>
+        <main class="card" id="main" aria-live="polite"></main>
     </div>
 
     <script>
@@ -602,17 +569,9 @@
         const RC = { T: '#5aa0ff', H: '#5fd38a', D: '#ff6a4d' }, RI = ['🛡️', '💚', '⚔️'];
         const setAccent = k => document.documentElement.style.setProperty('--accent', k ? cc(k) : '#d9b25a');
 
-        function renderLive(c) {
-            const el = $('live');
-            if (!c.role) { setAccent(); el.innerHTML = '<h3>Compatibilidade ao vivo</h3><p class="s">Escolha sua função para ver as specs ganhando pontos.</p>'; return; }
-            setAccent(c.rank[0].sc > 0 ? c.rank[0].k : null);
-            el.innerHTML = '<h3>Compatibilidade ao vivo</h3><p class="s">Função: ' + ROLE[c.role] + '. As porcentagens somam 100% entre as specs da função.</p>' +
-                c.rank.slice(0, 6).map((r, i) => '<div class="row' + (i === 0 ? ' top' : '') + '" style="--c:' + cc(r.k) + '"><div><span>' + S[r.k][0] + '</span><b>' + r.pct.toFixed(1) + '%</b></div><div class="bar"><i style="width:' + Math.min(100, r.pct * 2.2) + '%"></i></div></div>').join('');
-        }
-
         function render() {
             const c = calc(), m = $('main'), n = ans.length;
-            renderLive(c);
+            setAccent();
             if (n < c.seq.length) {
                 const q = c.seq[n], first = q === Q[0];
                 m.innerHTML = '<div class="xp"><i style="width:' + (n / (c.role ? c.seq.length : 7) * 100) + '%"></i></div><div class="step">' + (c.role ? 'Pergunta ' + (n + 1) + ' de ' + c.seq.length + ' · ' + ROLE[c.role] : 'Pergunta 1') + '</div><h2>' + q.q + '</h2>' +
@@ -625,8 +584,6 @@
                     const t = tied.slice(0, 4).sort(() => Math.random() - .5);
                     const dup = new Set(t.map(r => S[r.k][1])).size < t.length;
                     const tx = r => { const p = S[r.k][1]; return p[0].toUpperCase() + p.slice(1) + (dup ? ' · ' + S[r.k][2] : ''); };
-                    setAccent();
-                    $('live').innerHTML = '<h3>Compatibilidade ao vivo</h3><p class="s">O resultado está em segredo. As specs só serão reveladas no final.</p>';
                     m.innerHTML = '<div class="xp"><i style="width:100%"></i></div><div class="step">Desempate</div><p class="tie">Houve um empate no topo. Para desempatar, escolha a descrição que mais combina com você. O resultado continua em segredo até o final.</p><h2>Qual destas descrições é mais a sua cara?</h2>' +
                         t.map(r => '<button class="opt" data-k="' + r.k + '">' + tx(r) + '</button>').join('') +
                         '<div class="actions"><button class="btn" id="back">Voltar</button></div>';
@@ -638,8 +595,16 @@
 
         function result(c, m) {
             const t3 = c.rank.slice(0, 3), k = t3[0].k, main = S[k];
+            setAccent(k);
+            const W = ans.map(a => ({ q: a.q.q, t: a.q.o[a.i][0], p: (a.q.o[a.i][1].w || {})[k] || 0 })).filter(x => x.p >= 2).sort((a, b) => b.p - a.p);
+            const L = [];
+            if (tb.includes(k)) L.push({ q: 'Desempate', x: 'Você escolheu a descrição “' + main[1] + '”, que é a cara do ' + main[0] + '.' });
+            const F = [x => 'Você escolheu “' + x + '”: isso encaixa com o estilo do ' + main[0] + ' (' + main[2] + ').', x => 'Você preferiu “' + x + '”, e isso pesa a favor do ' + main[0] + '.', x => 'Sua resposta “' + x + '” também aponta para o ' + main[0] + '.'];
+            W.forEach(w => { if (L.length < 3) L.push({ q: w.q, x: F[L.length](w.t) }); });
+            if (L.length < 3) L.push({ q: 'Perfil geral', x: 'O conjunto das suas respostas desenhou um perfil ' + main[1] + ', que é o do ' + main[0] + '.' });
             m.innerHTML = '<div class="xp"><i style="width:100%"></i></div><div class="step">Missão cumprida</div>' +
                 '<div class="item" style="--c:' + cc(k) + '"><div class="rar">Seu main</div><h2>' + main[0] + '</h2><div class="cl">' + CN[C[k]] + ' · ' + ROLE[c.role] + '</div><div class="pc">' + t3[0].pct.toFixed(1) + '% de compatibilidade</div></div>' +
+                '<h3 class="mt cinz">Motivo</h3><ul class="why" style="--c:' + cc(k) + '">' + L.map(r => '<li><small>' + r.q + '</small>' + r.x + '</li>').join('') + '</ul>' +
                 '<dl class="res"><dt>Role</dt><dd>' + ROLE[c.role] + '</dd>' +
                 '<dt>Características principais</dt><dd>' + main[1] + '</dd>' +
                 '<dt>Playstyle</dt><dd>' + main[2] + '</dd>' +

@@ -38,7 +38,7 @@
             z-index: 1;
             max-width: 720px;
             margin: 0 auto;
-            padding: 32px 16px 64px
+            padding: 32px 16px 40px
         }
 
         h1,
@@ -140,7 +140,7 @@
             background: var(--s);
             border: 1px solid var(--l);
             border-radius: 8px;
-            padding: 14px 16px;
+            padding: 14px 16px 12px;
             margin-top: 10px;
             transition: border-color .15s, background .15s
         }
@@ -151,36 +151,69 @@
         }
 
         .q p {
-            margin: 0 0 12px
+            margin: 0 0 14px
         }
 
+        /* ===== Escala de concordância (bolinhas) ===== */
         .opts {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 6px
+            align-items: center;
+            justify-items: center;
+            gap: 4px
         }
 
         .opts button {
             font: inherit;
-            font-weight: 500;
-            padding: 9px 0;
-            border: 1px solid var(--l);
+            font-weight: 600;
+            font-size: .82rem;
+            padding: 0;
+            border-radius: 50%;
+            border: 1.5px solid var(--l);
             background: transparent;
             color: var(--m);
-            border-radius: 6px;
             cursor: pointer;
-            transition: background .15s, color .15s
+            transition: background .15s, color .15s, border-color .15s, transform .15s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .opts button[data-n="1"],
+        .opts button[data-n="5"] {
+            width: 44px;
+            height: 44px
+        }
+
+        .opts button[data-n="2"],
+        .opts button[data-n="4"] {
+            width: 38px;
+            height: 38px
+        }
+
+        .opts button[data-n="3"] {
+            width: 32px;
+            height: 32px
         }
 
         .opts button:hover {
             color: var(--t);
-            border-color: var(--m)
+            border-color: var(--m);
+            transform: scale(1.06)
         }
 
         .opts button[aria-pressed="true"] {
             background: var(--on);
             color: var(--onfg);
             border-color: var(--on)
+        }
+
+        .ends {
+            display: flex;
+            justify-content: space-between;
+            font-size: .72rem;
+            color: var(--m);
+            margin-top: 8px
         }
 
         button:focus-visible,
@@ -508,6 +541,45 @@
             color: var(--m);
             font-size: .78rem;
             margin-top: 28px
+        }
+
+        /* ===== Rodapé (aviso de fã + assinatura) ===== */
+        footer {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 16px 40px;
+            color: var(--m);
+            font-size: .75rem;
+            line-height: 1.6
+        }
+
+        footer .fi {
+            border-top: 1px solid var(--l);
+            padding-top: 16px
+        }
+
+        footer p {
+            margin: 0 0 8px
+        }
+
+        footer .by {
+            color: var(--t);
+            font-size: .82rem
+        }
+
+        footer .by b {
+            font-weight: 600
+        }
+
+        footer.res .fi {
+            background: rgba(13, 15, 19, .62);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--l);
+            border-radius: 10px;
+            padding: 14px
         }
 
         /* ===== Vidro fosco na tela de resultado, para o texto ficar legível sobre o cenário ===== */
@@ -846,6 +918,10 @@
             .cv {
                 transition: none
             }
+
+            .opts button {
+                transition: none
+            }
         }
 
         @media (hover:none) {
@@ -866,6 +942,23 @@
             .top .pc {
                 margin-left: 0
             }
+
+            .opts button[data-n="1"],
+            .opts button[data-n="5"] {
+                width: 40px;
+                height: 40px
+            }
+
+            .opts button[data-n="2"],
+            .opts button[data-n="4"] {
+                width: 35px;
+                height: 35px
+            }
+
+            .opts button[data-n="3"] {
+                width: 30px;
+                height: 30px
+            }
         }
     </style>
 </head>
@@ -873,6 +966,18 @@
 <body>
     <div id="bg" class="bg" aria-hidden="true"></div>
     <main id="app"></main>
+
+    <footer id="ft">
+        <div class="fi">
+            <!-- ALTERE AQUI: troque SEU NOME AQUI pelo seu nome ou apelido.
+       Para colocar um link (Discord, Twitter, site), use: <a href="https://seulink.com" style="color:inherit">SEU NOME AQUI</a> -->
+            <p class="by">Feito por: <a href="https://github.com/victorfprieto" target="_blank" style="color:inherit">Victor F. Prieto</a></p>
+            <p>Projeto não oficial, feito por fã e sem fins lucrativos. Não é afiliado, patrocinado nem endossado pela Blizzard Entertainment, Inc.</p>
+            <p>World of Warcraft®, WoW Forever e os nomes de classes, especializações e ícones relacionados pertencem à Blizzard Entertainment. As informações do jogo são baseadas na Beta pública e podem mudar no lançamento.
+            </p>
+        </div>
+    </footer>
+
     <script>
         /* ===== CLASSES (cores oficiais do WoW) ===== */
         const C = {
@@ -880,8 +985,15 @@
             paladin: { n: "Paladino", c: "#F48CBA" }, priest: { n: "Sacerdote", c: "#FFFFFF" }, rogue: { n: "Ladino", c: "#FFF468" },
             shaman: { n: "Xamã", c: "#0070DD" }, warlock: { n: "Bruxo", c: "#8788EE" }, warrior: { n: "Guerreiro", c: "#C69B6D" }
         };
-        const ICON = "https://www.warcrafttavern.com/icons/classes/";
-        const SPICON = "https://www.warcrafttavern.com/icons/specializations/";
+
+        /* ===== ÍCONES (arquivos locais) =====
+        Estrutura esperada, ao lado do index.html:
+          icons/classes/druid.webp, hunter.webp, mage.webp ...
+          icons/specializations/balance-druid.webp, bm-hunter.webp ...
+        */
+        const ICON = "icons/classes/";
+        const SPICON = "icons/specializations/";
+        const EXTS = [".webp", ".png", ".jpg", ".jpeg"];
 
         /* ===== CENÁRIOS DE FUNDO =====
         g = gradiente base · f = cor das silhuetas · s = silhuetas (SVG) · x = elementos extras
@@ -976,7 +1088,7 @@
         ST furtividade · PT pets · BU explosão de dano · AO dano em área · UT utilidade/controle/buffs
         SO força solo · VR versatilidade · CX complexidade */
         const TR = ["TK", "HL", "ML", "RG", "MK", "ST", "PT", "BU", "AO", "UT", "SO", "VR", "CX"];
-        /* [classe, especialização, papel, traços, ícone da especialização] */
+        /* [classe, especialização, papel, traços, nome do arquivo do ícone da especialização (sem extensão)] */
         const P = [
             ["druid", "Equilíbrio", "Dano à distância", "0003000121212", "balance-druid"],
             ["druid", "Feral (Forma de Gato)", "Dano corpo a corpo", "0030020201332", "feral-druid"],
@@ -1008,7 +1120,8 @@
             ["warrior", "Proteção", "Tanque", "3000000011101", "prot-warrior"]];
 
         /* ===== QUESTIONÁRIO =====
-        sh = nome curto (gráfico e tabelas) · cada pergunta tem uma lista de traços (ou @classe) que define quais especializações ela favorece. */
+        sh = nome curto (gráfico e tabelas) · cada pergunta tem uma lista de traços (ou @classe) que define quais especializações ela favorece.
+        Todas as seções usam a mesma escala de concordância (veja L abaixo). */
         const S = [
             {
                 id: "Combat Satisfaction", sh: "Combat", w: .30, d: "Quanto você realmente se diverte jogando o combate de cada estilo.", q: [
@@ -1041,8 +1154,7 @@
                     ["Quero explorar o mundo aberto, missões e conteúdo solo.", ["SO", "VR"]]]
             },
             {
-                id: "Time Compatibility", sh: "Time", w: .15, d: "Responda de acordo com a sua rotina real: o quanto cada frase descreve você hoje?",
-                L: ["Não tem nada a ver comigo", "Tem pouco a ver comigo", "Descreve em parte", "Descreve bem", "É exatamente o meu caso"], q: [
+                id: "Time Compatibility", sh: "Time", w: .15, d: "Pense na sua rotina real: o quanto você concorda que cada frase descreve você hoje?", q: [
                     ["Costumo jogar em sessões curtas, de 30 a 60 minutos.", ["SO"]],
                     ["Tenho horários fixos na semana para jogar em grupo organizado.", ["HL", "TK", "UT"]],
                     ["Quero entrar numa fila de dungeon e ser aceito rápido, sem esperar.", ["TK", "HL"]],
@@ -1061,23 +1173,25 @@
                     ["Amo a ideia do xamã ou druida que muda de forma, usa totens e inspira aliados.", ["VR", "UT", "@shaman", "@druid"]]]
             }];
 
-        const L = ["Gosto muito pouco", "Gosto pouco", "Gosto", "Gosto mais", "Gosto muito mais"];
+        /* Escala de concordância, igual para todas as seções (1 a 5) */
+        const L = ["Discordo totalmente", "Discordo em parte", "Tanto faz", "Concordo em parte", "Concordo totalmente"];
         const app = document.getElementById("app");
+        const ft = document.getElementById("ft");
+        function mode(r) { app.className = r ? "res" : ""; ft.className = r ? "res" : "" }
         let step = -1, ans = {}, view = "class", showAll = false, act = 0;
         const OPEN = new Set();
         const total = S.reduce((s, x) => s + x.q.length, 0);
         const key = (s, i) => s + "-" + i;
-        const scale = s => (s && s.L) || L;
         const pc = v => (v * 100).toFixed(0) + "%";
         const aff = (k, tr, tags) => tags.reduce((w, t) => w + (t[0] === "@" ? (t.slice(1) === k ? 3 : 0) : +tr[TR.indexOf(t)]), 0);
 
-        function legend(s) { return '<div class="legend">' + scale(s).map((t, i) => '<span><b>' + (i + 1) + '</b> ' + t + '</span>').join("") + '</div>' }
+        function legend() { return '<div class="legend">' + L.map((t, i) => '<span><b>' + (i + 1) + '</b> ' + t + '</span>').join("") + '</div>' }
         const HINT = '<p class="hint">Atalhos: <kbd>1</kbd> a <kbd>5</kbd> respondem a pergunta destacada · <kbd>↑</kbd> <kbd>↓</kbd> trocam de pergunta · <kbd>Enter</kbd> avança</p>';
 
         function start() { step = 0; show(); scrollTo(0, 0) }
         function intro() {
-            setBg(null); app.className = ""; step = -1;
-            app.innerHTML = '<h1>Qual classe combina com você?</h1><p class="sub">Questionário baseado no World of Warcraft: Forever (lançamento em 4 de novembro de 2026): 9 classes, 28 combinações de especialização e papel. São ' + total + ' afirmações em 5 seções, respondidas de 1 a 5.</p>' +
+            setBg(null); mode(false); step = -1;
+            app.innerHTML = '<h1>Qual classe combina com você?</h1><p class="sub">Questionário baseado no World of Warcraft: Forever (lançamento em 4 de novembro de 2026): 9 classes, 28 combinações de especialização e papel. São ' + total + ' afirmações em 5 seções. Para cada uma, marque o quanto você concorda, de “Discordo totalmente” (1) a “Concordo totalmente” (5).</p>' +
                 S.map(s => '<div class="sec"><h3>' + s.id + ' <span>· peso ' + Math.round(s.w * 100) + '%</span></h3><p>' + s.d + '</p></div>').join("") +
                 legend() + HINT + '<div class="nav"><span></span><button class="btn" id="go">Começar</button></div>';
             document.getElementById("go").onclick = start;
@@ -1128,13 +1242,14 @@
 
         function show() {
             if (step >= S.length) { return result() }
-            setBg(null); app.className = "";
+            setBg(null); mode(false);
             const s = S[step], done = Object.keys(ans).length;
             let h = '<div class="meta"><span>Seção ' + (step + 1) + ' de ' + S.length + '</span><span>' + done + '/' + total + ' respondidas</span></div><div class="bar"><i style="width:' + (done / total * 100) + '%"></i></div>' +
-                '<h2>' + s.id + ' <span style="color:var(--m);font-weight:400">· peso ' + Math.round(s.w * 100) + '%</span></h2><p class="sub" style="margin-bottom:0">' + s.d + '</p>' + legend(s) + HINT;
+                '<h2>' + s.id + ' <span style="color:var(--m);font-weight:400">· peso ' + Math.round(s.w * 100) + '%</span></h2><p class="sub" style="margin-bottom:0">' + s.d + '</p>' + HINT;
             s.q.forEach((q, i) => {
-                h += '<div class="q"><p>' + q[0] + '</p><div class="opts" role="group" aria-label="Nota de 1 a 5">' +
-                    [1, 2, 3, 4, 5].map(n => '<button data-q="' + i + '" data-n="' + n + '" title="' + scale(s)[n - 1] + '" aria-pressed="' + (ans[key(step, i)] === n) + '">' + n + '</button>').join("") + '</div></div>';
+                h += '<div class="q"><p>' + q[0] + '</p><div class="opts" role="group" aria-label="Concordância de 1 (discordo totalmente) a 5 (concordo totalmente)">' +
+                    [1, 2, 3, 4, 5].map(n => '<button data-q="' + i + '" data-n="' + n + '" title="' + L[n - 1] + '" aria-label="' + L[n - 1] + '" aria-pressed="' + (ans[key(step, i)] === n) + '">' + n + '</button>').join("") + '</div>' +
+                    '<div class="ends"><span>Discordo</span><span>Concordo</span></div></div>';
             });
             h += '<div class="nav"><button class="btn g" id="bk"' + (step === 0 ? ' disabled' : '') + '>Voltar</button><button class="btn" id="nx" disabled>' + (step === S.length - 1 ? 'Ver resultado' : 'Próxima seção') + '</button></div>';
             app.innerHTML = h;
@@ -1164,20 +1279,27 @@
             }).sort((a, b) => b.fin - a.fin);
         }
 
-        /* ===== Ícones ===== */
+        /* ===== Ícones (lidos das pastas locais) ===== */
         function icon(k) {
-            return '<img class="ic" src="' + ICON + k + '.webp" alt="' + C[k].n + '" data-k="' + k + '" loading="lazy">';
+            return '<img class="ic" src="' + ICON + k + EXTS[0] + '" data-b="' + ICON + k + '" data-e="0" data-k="' + k + '" alt="' + C[k].n + '">';
         }
         function spIcon(x) {
-            return '<img class="ic sp" src="' + SPICON + x.slug + '.webp" alt="" title="' + x.sp + '" data-sp loading="lazy">';
+            return '<img class="ic sp" src="' + SPICON + x.slug + EXTS[0] + '" data-b="' + SPICON + x.slug + '" data-e="0" data-sp alt="" title="' + x.sp + '">';
         }
         const ics = x => '<span class="ics">' + icon(x.k) + spIcon(x) + '</span>';
+        /* Se a imagem não carregar, tenta a próxima extensão; se nenhuma existir,
+           o ícone da classe vira a inicial colorida e o da especialização é removido. */
         function fixIcons() {
-            app.querySelectorAll("img[data-sp]").forEach(i => i.onerror = () => i.remove());
-            app.querySelectorAll("img[data-k]").forEach(i => i.onerror = () => {
-                const s = document.createElement("span");
-                s.className = i.className.replace("ic", "fb"); if (!/fb/.test(s.className)) s.className = "fb";
-                s.textContent = C[i.dataset.k].n[0]; s.style.color = C[i.dataset.k].c; i.replaceWith(s);
+            app.querySelectorAll("img[data-b]").forEach(i => {
+                i.onerror = () => {
+                    const n = +i.dataset.e + 1;
+                    if (n < EXTS.length) { i.dataset.e = n; i.src = i.dataset.b + EXTS[n]; return }
+                    if (i.hasAttribute("data-sp")) { i.remove(); return }
+                    const s = document.createElement("span");
+                    s.className = i.className.replace("ic", "fb");
+                    s.textContent = C[i.dataset.k].n[0]; s.style.color = C[i.dataset.k].c;
+                    i.replaceWith(s);
+                };
             });
         }
 
@@ -1213,14 +1335,14 @@
             }
             const up = x.qs.filter(q => q.w > 0 && q.a > 3).sort((a, b) => b.w * (b.a - 3) - a.w * (a.a - 3)).slice(0, 3);
             const dn = x.qs.filter(q => q.w > 0 && q.a < 3).sort((a, b) => b.w * (3 - b.a) - a.w * (3 - a.a)).slice(0, 3);
-            const li = q => '<li>“' + (q.t.length > 74 ? q.t.slice(0, 72) + "…" : q.t) + '” <span>· sua nota: ' + q.a + '</span></li>';
+            const li = q => '<li>“' + (q.t.length > 74 ? q.t.slice(0, 72) + "…" : q.t) + '” <span>· sua resposta: ' + L[q.a - 1] + '</span></li>';
             let tb = '<table class="tb"><tr><th>Seção (peso)</th><th>Nota</th><th>Pontos</th>' + (top ? '' : '<th>vs 1º</th>') + '</tr>';
             it.forEach(o => { tb += '<tr><td>' + S[o.j].sh + ' <span>' + Math.round(S[o.j].w * 100) + '%</span></td><td>' + pc(o.v) + '</td><td>' + o.pts.toFixed(1) + '</td>' + (top ? '' : '<td>' + sg(o.d) + '</td>') + '</tr>' });
             tb += '<tr class="tt"><td>Total</td><td></td><td>' + x.fin.toFixed(1) + '</td>' + (top ? '' : '<td>' + sg(x.fin - win.fin) + '</td>') + '</tr></table>';
             let tx = '<p>' + sum + '</p>' + tb;
-            tx += '<h4>Respostas que mais puxaram para cima</h4>' + (up.length ? '<ul>' + up.map(li).join("") + '</ul>' : '<p class="mu">Nenhuma resposta alta muito ligada a esta combinação.</p>');
+            tx += '<h4>Respostas que mais puxaram para cima</h4>' + (up.length ? '<ul>' + up.map(li).join("") + '</ul>' : '<p class="mu">Nenhuma resposta de concordância muito ligada a esta combinação.</p>');
             if (dn.length) tx += '<h4>Respostas que mais puxaram para baixo</h4><ul>' + dn.map(li).join("") + '</ul>';
-            tx += '<p class="mu" style="margin-top:10px">Quanto mais uma pergunta tem a ver com a combinação, maior o efeito da sua nota.</p>';
+            tx += '<p class="mu" style="margin-top:10px">Quanto mais uma pergunta tem a ver com a combinação, maior o efeito da sua resposta.</p>';
             if (byClass) {
                 tx += '<h4>Todas as especializações de ' + C[x.k].n + '</h4><ul>' + r.filter(y => y.k === x.k).map(y => '<li>' + y.sp + ' <span>· ' + y.fin.toFixed(1) + '%</span></li>').join("") + '</ul>';
             }
@@ -1239,7 +1361,7 @@
 
         function result() {
             const r = compute(), t = r[0], c = C[t.k];
-            setBg(t.k); app.className = "res";
+            setBg(t.k); mode(true);
             const seen = {}, cls = []; r.forEach(x => { if (!seen[x.k]) { seen[x.k] = 1; cls.push(x) } });
             let h = '<h1>Seu resultado</h1>' +
                 '<div class="top">' + ics(t) + '<div><small>Combinação mais próxima do seu perfil</small><b style="color:' + c.c + '">' + c.n + ' <em>' + t.sp + '</em></b><small>' + t.role + '</small></div><div class="pc" style="color:' + c.c + '">' + t.fin.toFixed(1) + '%</div></div>' +
@@ -1252,7 +1374,7 @@
                 h += '<div class="nav" style="justify-content:center"><button class="btn g" id="sa">' + (showAll ? 'Mostrar só as 10 primeiras' : 'Mostrar todas (' + r.length + ')') + '</button></div>';
             }
             h += '<div class="nav"><button class="btn g" id="bk">Revisar respostas</button><button class="btn" id="rs">Refazer</button></div>' +
-                '<p class="note">Classes e especializações conforme as informações públicas da Beta do WoW Forever (fonte principal: guia de classes do Warcraft Tavern), que podem mudar até o lançamento. Os pesos de afinidade entre perguntas e especializações são uma estimativa baseada nos papéis e estilos de cada uma. Os ícones são carregados do site warcrafttavern.com e precisam de internet; sem eles, aparece a inicial da classe.</p>';
+                '<p class="note">Classes e especializações conforme as informações públicas da Beta do WoW Forever (fonte principal: guia de classes do Warcraft Tavern), que podem mudar até o lançamento. Os pesos de afinidade entre perguntas e especializações são uma estimativa baseada nos papéis e estilos de cada uma. Se algum ícone não carregar, aparece a inicial da classe.</p>';
             app.innerHTML = h; fixIcons();
             app.querySelectorAll(".rh").forEach(hd => {
                 const row = hd.parentNode;

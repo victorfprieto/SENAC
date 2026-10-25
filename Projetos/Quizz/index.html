@@ -25,8 +25,17 @@
             box-sizing: border-box
         }
 
+        html {
+            background: var(--bg)
+        }
+
         body {
             margin: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
             background: var(--bg);
             color: var(--t);
             font: 15px/1.55 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -36,9 +45,11 @@
         main {
             position: relative;
             z-index: 1;
+            flex: 1 0 auto;
+            width: 100%;
             max-width: 720px;
             margin: 0 auto;
-            padding: 32px 16px 40px
+            padding: 28px 16px 16px
         }
 
         h1,
@@ -64,7 +75,7 @@
 
         .sub {
             color: var(--m);
-            margin: 8px 0 24px
+            margin: 8px 0 20px
         }
 
         .meta {
@@ -122,7 +133,7 @@
 
         .sec {
             border-top: 1px solid var(--l);
-            padding: 14px 0
+            padding: 10px 0
         }
 
         .sec p {
@@ -226,7 +237,7 @@
             display: flex;
             justify-content: space-between;
             gap: 10px;
-            margin-top: 28px
+            margin-top: 24px
         }
 
         .btn {
@@ -547,9 +558,11 @@
         footer {
             position: relative;
             z-index: 1;
+            flex: none;
+            width: 100%;
             max-width: 720px;
             margin: 0 auto;
-            padding: 0 16px 40px;
+            padding: 0 16px 24px;
             color: var(--m);
             font-size: .75rem;
             line-height: 1.6
@@ -557,11 +570,15 @@
 
         footer .fi {
             border-top: 1px solid var(--l);
-            padding-top: 16px
+            padding-top: 14px
         }
 
         footer p {
             margin: 0 0 8px
+        }
+
+        footer p:last-child {
+            margin-bottom: 0
         }
 
         footer .by {
@@ -971,10 +988,9 @@
         <div class="fi">
             <!-- ALTERE AQUI: troque SEU NOME AQUI pelo seu nome ou apelido.
        Para colocar um link (Discord, Twitter, site), use: <a href="https://seulink.com" style="color:inherit">SEU NOME AQUI</a> -->
-            <p class="by">Feito por: <a href="https://github.com/victorfprieto" target="_blank" style="color:inherit">Victor F. Prieto</a></p>
+            <p class="by">Feito por: <a href="https://github.com/victorfprieto" style="color:inherit">Victor F. Prieto</a></p>
             <p>Projeto não oficial, feito por fã e sem fins lucrativos. Não é afiliado, patrocinado nem endossado pela Blizzard Entertainment, Inc.</p>
-            <p>World of Warcraft®, WoW Forever e os nomes de classes, especializações e ícones relacionados pertencem à Blizzard Entertainment. As informações do jogo são baseadas na Beta pública e podem mudar no lançamento.
-            </p>
+            <p>World of Warcraft®, WoW Forever e os nomes de classes, especializações e ícones relacionados pertencem à Blizzard Entertainment. As informações do jogo são baseadas na Beta pública e podem mudar no lançamento.</p>
         </div>
     </footer>
 

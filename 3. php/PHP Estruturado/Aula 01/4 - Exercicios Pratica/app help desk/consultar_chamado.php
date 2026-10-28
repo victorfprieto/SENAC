@@ -3,7 +3,7 @@
 
     $chamados = [];
 
-    $arquivo = fopen('../../../../../../app_help_desk_sec/registros.hd', 'r');  
+    $arquivo = fopen('../../../../../app_help_desk_sec/registros.hd', 'r');  
 
     while(!feof($arquivo)){
         $registro = fgets($arquivo);

@@ -12,7 +12,7 @@
     // Concatenando os valores de cada parâmetro
     $dados = $id . '|' . $perfil . '|' . $nome . '|' . $titulo . '|' . $categoria . '|' . $descricao . PHP_EOL;
 
-    $arquivo = fopen('../../../../../../app_help_desk_sec/registros.hd', 'a');
+    $arquivo = fopen('../../../../../app_help_desk_sec/registros.hd', 'a');
 
     fwrite($arquivo, $dados);
 

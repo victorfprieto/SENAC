@@ -165,7 +165,7 @@
             margin: 0 0 14px
         }
 
-        /* ===== Escala de concordância (bolinhas) ===== */
+        /* Escala de concordância ===== */
         .opts {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -333,7 +333,7 @@
             border-color: var(--on)
         }
 
-        /* ===== Linhas do ranking (clicáveis) ===== */
+        /* Linhas do ranking */
         .row {
             border-bottom: 1px solid var(--l)
         }
@@ -554,7 +554,7 @@
             margin-top: 28px
         }
 
-        /* ===== Rodapé (aviso de fã + assinatura) ===== */
+        /* Rodapé */
         footer {
             position: relative;
             z-index: 1;
@@ -599,7 +599,7 @@
             padding: 14px
         }
 
-        /* ===== Vidro fosco na tela de resultado, para o texto ficar legível sobre o cenário ===== */
+        /* Vidro fosco na tela de resultado, para o texto ficar legível sobre o cenário */
         .res .top,
         .res .row,
         .res .note {
@@ -636,7 +636,7 @@
             text-shadow: 0 1px 10px rgba(0, 0, 0, .8)
         }
 
-        /* ===== Fundo por classe ===== */
+        /* Fundo por classe */
         .bg {
             position: fixed;
             inset: 0;
@@ -993,18 +993,13 @@
     </footer>
 
     <script>
-        /* ===== CLASSES (cores oficiais do WoW) ===== */
+
         const C = {
             druid: { n: "Druida", c: "#FF7C0A" }, hunter: { n: "Caçador", c: "#AAD372" }, mage: { n: "Mago", c: "#3FC7EB" },
             paladin: { n: "Paladino", c: "#F48CBA" }, priest: { n: "Sacerdote", c: "#FFFFFF" }, rogue: { n: "Ladino", c: "#FFF468" },
             shaman: { n: "Xamã", c: "#0070DD" }, warlock: { n: "Bruxo", c: "#8788EE" }, warrior: { n: "Guerreiro", c: "#C69B6D" }
         };
 
-        /* ===== ÍCONES (arquivos locais) =====
-        Estrutura esperada, ao lado do index.html:
-          icons/classes/
-          icons/specializations/
-        */
         const ICON = "icons/classes/";
         const SPICON = "icons/specializations/";
         const EXTS = [".webp", ".png", ".jpg", ".jpeg"];
@@ -1097,7 +1092,7 @@
             requestAnimationFrame(() => bg.classList.add("on"));
         }
 
-        /* ===== TRAÇOS (ordem dos dígitos de cada especialização, valores 0 a 3) =====
+        /* TRAÇOS (ordem dos dígitos de cada especialização, valores 0 a 3) =====
         TK tanque · HL cura · ML corpo a corpo · RG magia à distância · MK ataque físico à distância
         ST furtividade · PT pets · BU explosão de dano · AO dano em área · UT utilidade/controle/buffs
         SO força solo · VR versatilidade · CX complexidade */
@@ -1133,9 +1128,7 @@
             ["warrior", "Fúria", "Dano corpo a corpo", "0030000220301", "fury-warrior"],
             ["warrior", "Proteção", "Tanque", "3000000011101", "prot-warrior"]];
 
-        /* ===== QUESTIONÁRIO =====
-        sh = nome curto (gráfico e tabelas) · cada pergunta tem uma lista de traços (ou @classe) que define quais especializações ela favorece.
-        Todas as seções usam a mesma escala de concordância (veja L abaixo). */
+        /* ===== QUESTIONÁRIO ===== */
         const S = [
             {
                 id: "Combat Satisfaction", sh: "Combat", w: .30, d: "Quanto você realmente se diverte jogando o combate de cada estilo.", q: [

@@ -14,13 +14,13 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Help Desk - Consultar Chamado</title>
+    <title>Cemitério Memorial - Consultar Solicitações</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -31,16 +31,16 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #334155;
+            background-color: #181c24;
+            color: #94a3b8;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
+            background-color: #222733;
+            border-bottom: 1px solid #323846;
             padding: 16px 32px;
             display: flex;
             align-items: center;
@@ -50,20 +50,21 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             text-decoration: none;
         }
 
         nav img {
-            height: 32px;
+            height: 36px;
             width: auto;
         }
 
         nav h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 17px;
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            letter-spacing: 1px;
             font-weight: 600;
-            color: #1e293b;
+            color: #e2dfd2;
         }
 
         .nav-brand-group {
@@ -82,7 +83,7 @@
             font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
             font-weight: 500;
-            color: #64748b;
+            color: #94a3b8;
             text-decoration: none;
             padding: 8px 16px;
             border-radius: 6px;
@@ -90,8 +91,8 @@
         }
 
         .nav-link:hover {
-            color: #3333cc;
-            background-color: #f1f5f9;
+            color: #e2dfd2;
+            background-color: #323846;
         }
 
         .container {
@@ -107,27 +108,24 @@
             max-width: 600px;
         }
 
-        .card-consultar-chamado {
-            width: 100%;
-        }
-
         .card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
+            background-color: #222733;
+            border: 1px solid #323846;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
             overflow: hidden;
             margin-bottom: 16px;
         }
 
         .card-header {
-            background-color: #ffffff;
+            background-color: #222733;
             text-align: center;
+            font-family: 'Cinzel', serif;
             font-size: 1.25rem;
             font-weight: 600;
-            color: #1e293b;
-            padding: 24px 24px 16px 24px;
-            border-bottom: 1px solid #f1f5f9;
+            color: #e2dfd2;
+            padding: 24px;
+            border-bottom: 1px solid #323846;
         }
 
         .card-body {
@@ -135,8 +133,8 @@
         }
 
         .ticket-card {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background-color: #181c24;
+            border: 1px solid #384152;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 16px;
@@ -145,12 +143,12 @@
         .ticket-title {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #1e293b;
+            color: #e2dfd2;
             margin-bottom: 6px;
         }
 
         .ticket-user {
-            color: #3333cc;
+            color: #94a3b8;
             font-size: 0.85rem;
             font-weight: bolder;
             margin-bottom: 4px;
@@ -159,13 +157,13 @@
         .ticket-category {
             font-size: 0.9rem;
             font-weight: 500;
-            color: #64748b;
+            color: #cbd5e1;
             margin-bottom: 12px;
         }
 
         .ticket-text {
             font-size: 0.95rem;
-            color: #334155;
+            color: #d1d5db;
             line-height: 1.5;
         }
 
@@ -185,29 +183,28 @@
         }
 
         .btn-warning {
-            background-color: #e2e8f0;
-            color: #334155;
+            background-color: #323846;
+            color: #e2dfd2;
         }
 
         .btn-warning:hover {
-            background-color: #cbd5e1;
+            background-color: #3f4758;
         }
     </style>
-
 </head>
 <body>
 
     <nav>
         <div class="nav-brand-group">
             <a href="home.php" class="nav-brand">
-                <img src="img/help-desk-logo.png" alt="Logo Help Desk">
+                <img src="img/help-desk-logo-cemiterio.png" alt="Logo Cemitério">
             </a>
-            <h1>App Help Desk</h1>
+            <h1>Cemitério Memorial</h1>
         </div>
 
         <ul class="navbar-nav">
-            <li class="item" style="color: #3333cc; font-size: 0.95rem; font-weight: 500;">
-                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>!
+            <li class="item" style="color: #e2dfd2; font-size: 0.95rem; font-weight: 500;">
+                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>
             </li>
             <li class="item">
                 <a href="logoff.php" class="nav-link">Sair</a>
@@ -217,44 +214,42 @@
 
     <div class="container">    
         <div class="row">
-            <div class="card-consultar-chamado">
-                <div class="card">
-                    <div class="card-header">
-                        Consulta de chamado
-                    </div>
+            <div class="card">
+                <div class="card-header">
+                    Consulta de Solicitações
+                </div>
+                
+                <div class="card-body">
                     
-                    <div class="card-body">
+                    <?php foreach($chamados as $chamado){ ?>
+
+                        <?> 
+                            $chamado_dados = explode('|', $chamado);  
+
+                            if(count($chamado_dados) < 6){
+                                continue; 
+                            }
                         
-                        <?php foreach($chamados as $chamado){ ?>
-
-                            <?php 
-                                $chamado_dados = explode('|', $chamado);  
-
-                                if(count($chamado_dados) < 6){
+                            if($_SESSION['perfil'] === 'user'){
+                                if($chamado_dados[0] != $_SESSION['id'] ){
                                     continue; 
                                 }
-                            
-                                if($_SESSION['perfil'] === 'user'){
-                                    if($chamado_dados[0] != $_SESSION['id'] ){
-                                        continue; 
-                                    }
-                                }
-                            ?>
+                            }
+                        ?>
 
-                            <div class="ticket-card">
-                                <h5 class="ticket-title"><?php echo $chamado_dados[3]; ?></h5>
-                                <div class="ticket-user">Usuário: <?php echo $chamado_dados[2]; ?></div>
-                                <div class="ticket-category">Categoria: <?php echo $chamado_dados[4]; ?></div>
-                                <p class="ticket-text"><?php echo $chamado_dados[5]; ?></p>
-                            </div>
-
-                        <?php } ?>
-                        
-                        <div style="margin-top: 24px;">
-                            <a class="btn btn-warning" href="home.php">Voltar</a>
+                        <div class="ticket-card">
+                            <h5 class="ticket-title"><?php echo $chamado_dados[3]; ?></h5>
+                            <div class="ticket-user">Concessionário / Solicitante: <?php echo $chamado_dados[2]; ?></div>
+                            <div class="ticket-category">Serviço: <?php echo $chamado_dados[4]; ?></div>
+                            <p class="ticket-text"><?php echo $chamado_dados[5]; ?></p>
                         </div>
 
+                    <?php } ?>
+                    
+                    <div style="margin-top: 24px;">
+                        <a class="btn btn-warning" href="home.php">Voltar</a>
                     </div>
+
                 </div>
             </div>
         </div>

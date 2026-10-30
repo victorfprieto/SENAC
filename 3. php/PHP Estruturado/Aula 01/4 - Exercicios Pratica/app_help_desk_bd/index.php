@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Help Desk - Login</title>
+    <title>Cemitério Memorial - Login</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -16,16 +16,16 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #334155;
+            background-color: #181c24; /* Tom cinza-ardósia escuro da logo */
+            color: #94a3b8;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
+            background-color: #222733;
+            border-bottom: 1px solid #323846;
             padding: 16px 32px;
             display: flex;
             align-items: center;
@@ -34,21 +34,21 @@
         nav a {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             text-decoration: none;
         }
 
         nav a img {
-            height: 32px;
+            height: 36px;
             width: auto;
         }
 
         nav h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 17px;
-            margin-left: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            letter-spacing: 1px;
             font-weight: 600;
-            color: #1e293b;
+            color: #e2dfd2; /* Tom creme/marfim inspirado na lua da logo */
         }
 
         .container {
@@ -65,30 +65,30 @@
         }
 
         .card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
+            background-color: #222733;
+            border: 1px solid #323846;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
             overflow: hidden;
         }
 
         .card-header {
-            background-color: #ffffff;
+            background-color: #222733;
             text-align: center;
-            font-size: 1.25rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
             font-weight: 600;
-            color: #1e293b;
-            padding: 24px 24px 16px 24px;
-            border-bottom: 1px solid #f1f5f9;
+            color: #e2dfd2;
+            padding: 28px 24px 18px 24px;
+            border-bottom: 1px solid #323846;
         }
 
         span {
-            color: #3333cc;
-            font-weight: bolder;
+            color: #e2dfd2;
         }
 
         .card-body {
-            padding: 24px;
+            padding: 28px;
         }
 
         .form-group {
@@ -100,31 +100,31 @@
             padding: 12px 16px;
             font-size: 0.95rem;
             font-family: 'Inter', sans-serif;
-            color: #1e293b;
-            background-color: #f8fafc;
-            border: 1px solid #cbd5e1;
+            color: #f1f5f9;
+            background-color: #181c24;
+            border: 1px solid #384152;
             border-radius: 8px;
             outline: none;
             transition: all 0.2s ease;
         }
 
         .form-control:focus {
-            background-color: #ffffff;
-            border-color: #3333cc;
+            background-color: #222733;
+            border-color: #e2dfd2;
         }
 
         .form-control::placeholder {
-            color: #94a3b8;
+            color: #64748b;
         }
 
         .text-danger {
-            background-color: #fef2f2;
-            color: #dc2626;
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #f87171;
             font-size: 0.875rem;
             padding: 10px 14px;
             border-radius: 6px;
             margin-bottom: 16px;
-            border: 1px solid #fee2e2;
+            border: 1px solid rgba(239, 68, 68, 0.2);
         }
 
         .btn {
@@ -138,16 +138,16 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            transition: background-color 0.2s ease;
         }
 
         .btn-info {
-            background-color: #3333cc;
-            color: #ffffff;
+            background-color: #384152;
+            color: #e2dfd2;
         }
 
         .btn-info:hover {
-            background-color: #4747d1;
+            background-color: #475266;
         }
     </style>
 </head>
@@ -155,9 +155,9 @@
 
     <nav>
         <a href="#">
-            <img src="img/help-desk-logo.png" alt="Logo Help Desk">
+            <img src="img/help-desk-logo-cemiterio.png" alt="Logo Cemitério">
         </a>
-        <h1>App Help Desk</h1>
+        <h1>Cemitério Memorial — Portal</h1>
     </nav>
 
     <div class="container">
@@ -165,27 +165,27 @@
             <div class="card-login">
                 <div class="card">
                     <div class="card-header">
-                        Faça o seu <span>Login</span>!
+                        Acesso ao <span>Memorial</span>
                     </div>
                     <div class="card-body">
                         
                         <form action="valida_login.php" method="POST">
                             <div class="form-group">
-                                <input name="email" type="email" class="form-control" placeholder="E-mail" required>
+                                <input name="email" type="email" class="form-control" placeholder="E-mail de acesso" required>
                             </div>
                             <div class="form-group">
                                 <input name="senha" type="password" class="form-control" placeholder="Senha" required>
                             </div>
 
                             <?php if (isset($_GET['login']) && $_GET['login'] === 'erro') { ?>
-                                <div class="text-danger">Usuário ou senha inválido(s)!</div>
+                                <div class="text-danger">Credenciais inválidas no registro!</div>
                             <?php } ?>
 
                             <?php if (isset($_GET['login']) && $_GET['login'] === 'erro2') { ?>
-                                <div class="text-danger">Você precisa fazer o login antes!</div>
+                                <div class="text-danger">Identificação necessária para prosseguir.</div>
                             <?php } ?>
 
-                            <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
+                            <button class="btn btn-lg btn-info btn-block" type="submit">Entrar no Sistema</button>
                         </form>
                     </div>
                 </div>

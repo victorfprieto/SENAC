@@ -1,17 +1,15 @@
 <?php 
-
     require_once "validador_acesso.php";
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Help Desk - Abrir Chamado</title>
+    <title>Cemitério Memorial - Abrir Solicitação</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -22,16 +20,16 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #334155;
+            background-color: #181c24;
+            color: #94a3b8;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
+            background-color: #222733;
+            border-bottom: 1px solid #323846;
             padding: 16px 32px;
             display: flex;
             align-items: center;
@@ -41,20 +39,21 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             text-decoration: none;
         }
 
         nav img {
-            height: 32px;
+            height: 36px;
             width: auto;
         }
 
         nav h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 17px;
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            letter-spacing: 1px;
             font-weight: 600;
-            color: #1e293b;
+            color: #e2dfd2;
         }
 
         .nav-brand-group {
@@ -73,7 +72,7 @@
             font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
             font-weight: 500;
-            color: #64748b;
+            color: #94a3b8;
             text-decoration: none;
             padding: 8px 16px;
             border-radius: 6px;
@@ -81,8 +80,8 @@
         }
 
         .nav-link:hover {
-            color: #3333cc;
-            background-color: #f1f5f9;
+            color: #e2dfd2;
+            background-color: #323846;
         }
 
         .container {
@@ -98,26 +97,23 @@
             max-width: 600px;
         }
 
-        .card-abrir-chamado {
-            width: 100%;
-        }
-
         .card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
+            background-color: #222733;
+            border: 1px solid #323846;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
             overflow: hidden;
         }
 
         .card-header {
-            background-color: #ffffff;
+            background-color: #222733;
             text-align: center;
+            font-family: 'Cinzel', serif;
             font-size: 1.25rem;
             font-weight: 600;
-            color: #1e293b;
-            padding: 24px 24px 16px 24px;
-            border-bottom: 1px solid #f1f5f9;
+            color: #e2dfd2;
+            padding: 24px;
+            border-bottom: 1px solid #323846;
         }
 
         .card-body {
@@ -132,7 +128,7 @@
             display: block;
             font-size: 0.9rem;
             font-weight: 500;
-            color: #475569;
+            color: #94a3b8;
             margin-bottom: 6px;
         }
 
@@ -141,17 +137,17 @@
             padding: 12px 16px;
             font-size: 0.95rem;
             font-family: 'Inter', sans-serif;
-            color: #1e293b;
-            background-color: #f8fafc;
-            border: 1px solid #cbd5e1;
+            color: #f1f5f9;
+            background-color: #181c24;
+            border: 1px solid #384152;
             border-radius: 8px;
             outline: none;
             transition: all 0.2s ease;
         }
 
         .form-control:focus {
-            background-color: #ffffff;
-            border-color: #3333cc;
+            background-color: #222733;
+            border-color: #e2dfd2;
         }
 
         textarea.form-control {
@@ -181,38 +177,37 @@
         }
 
         .btn-warning {
-            background-color: #e2e8f0;
-            color: #334155;
+            background-color: #323846;
+            color: #e2dfd2;
         }
 
         .btn-warning:hover {
-            background-color: #cbd5e1;
+            background-color: #3f4758;
         }
 
         .btn-info {
-            background-color: #3333cc;
+            background-color: #384152;
             color: #ffffff;
         }
 
         .btn-info:hover {
-            background-color: #4747d1;
+            background-color: #475266;
         }
     </style>
-
 </head>
 <body>
 
     <nav>
         <div class="nav-brand-group">
             <a href="home.php" class="nav-brand">
-                <img src="img/help-desk-logo.png" alt="Logo Help Desk">
+                <img src="img/help-desk-logo-cemiterio.png" alt="Logo Cemitério">
             </a>
-            <h1>App Help Desk</h1>
+            <h1>Cemitério Memorial</h1>
         </div>
 
         <ul class="navbar-nav">
-            <li class="item" style="color: #3333cc; font-size: 0.95rem; font-weight: 500;">
-                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>!
+            <li class="item" style="color: #e2dfd2; font-size: 0.95rem; font-weight: 500;">
+                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>
             </li>
             <li class="item">
                 <a href="logoff.php" class="nav-link">Sair</a>
@@ -222,51 +217,49 @@
 
     <div class="container">
         <div class="row">
-            <div class="card-abrir-chamado">
-                <div class="card">
-                    <div class="card-header">
-                        Abertura de chamado
-                        <?php if (isset($_GET['cadastro']) && $_GET['cadastro'] === 'efetuado') { ?>
-                            <script>
-                                alert('Chamado cadastrado com sucesso!');
-                            </script>
-                        <?php } ?>
-                    </div>
-                    
-                    <div class="card-body">
-                        <form action="registra_chamado.php" method="POST">
-                            
-                            <div class="form-group">
-                                <label>Título</label>
-                                <input name="titulo" type="text" class="form-control" placeholder="Título do chamado" required>
-                            </div>
+            <div class="card">
+                <div class="card-header">
+                    Abertura de Solicitação
+                    <?php if (isset($_GET['cadastro']) && $_GET['cadastro'] === 'efetuado') { ?>
+                        <script>
+                            alert('Solicitação cadastrada com sucesso!');
+                        </script>
+                    <?php } ?>
+                </div>
+                
+                <div class="card-body">
+                    <form action="registra_chamado.php" method="POST">
+                        
+                        <div class="form-group">
+                            <label>Título da Ocorrência</label>
+                            <input name="titulo" type="text" class="form-control" placeholder="Ex: Infiltração na lápide / Limpeza" required>
+                        </div>
 
-                            <div class="form-group">
-                                <label>Categoria</label>
-                                <select name="categoria" class="form-control">
-                                    <option>Hardware</option>
-                                    <option>Software</option>
-                                    <option>Rede</option>
-                                    <option>Outros</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label>Categoria do Serviço</label>
+                            <select name="categoria" class="form-control">
+                                <option>Manutenção de Jazigo</option>
+                                <option>Serviços Sepulgrais (Coveiro)</option>
+                                <option>Jardinagem e Limpeza</option>
+                                <option>Taxas e Documentação</option>
+                            </select>
+                        </div>
 
-                            <div class="form-group">
-                                <label>Descrição</label>
-                                <textarea name="descricao" class="form-control" placeholder="Descreva o problema..." required></textarea>
-                            </div>
+                        <div class="form-group">
+                            <label>Descrição e Localização (Quadra / Lote)</label>
+                            <textarea name="descricao" class="form-control" placeholder="Informe a quadra, o lote e descreva a solicitação..." required></textarea>
+                        </div>
 
-                            <div class="actions-row">
-                                <div style="flex: 1;">
-                                    <a class="btn btn-warning" href="home.php">Voltar</a>
-                                </div>
-                                <div style="flex: 1;">
-                                    <button class="btn btn-info" type="submit">Abrir</button>
-                                </div>
+                        <div class="actions-row">
+                            <div style="flex: 1;">
+                                <a class="btn btn-warning" href="home.php">Voltar</a>
                             </div>
+                            <div style="flex: 1;">
+                                <button class="btn btn-info" type="submit">Registrar</button>
+                            </div>
+                        </div>
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

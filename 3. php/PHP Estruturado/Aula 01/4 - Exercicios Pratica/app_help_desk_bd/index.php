@@ -16,39 +16,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #181c24; /* Tom cinza-ardósia escuro da logo */
+            background-color: #14171f;
             color: #94a3b8;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-        }
-
-        nav {
-            background-color: #222733;
-            border-bottom: 1px solid #323846;
-            padding: 16px 32px;
-            display: flex;
-            align-items: center;
-        }
-
-        nav a {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        nav a img {
-            height: 36px;
-            width: auto;
-        }
-
-        nav h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 18px;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: #e2dfd2; /* Tom creme/marfim inspirado na lua da logo */
         }
 
         .container {
@@ -65,26 +37,44 @@
         }
 
         .card {
-            background-color: #222733;
-            border: 1px solid #323846;
+            background-color: #1c212c;
+            border: 1px solid #2b3342;
             border-radius: 12px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
             overflow: hidden;
         }
 
         .card-header {
-            background-color: #222733;
+            background-color: #1c212c;
             text-align: center;
             font-family: 'Cinzel', serif;
             font-size: 1.2rem;
             font-weight: 600;
-            color: #e2dfd2;
-            padding: 28px 24px 18px 24px;
-            border-bottom: 1px solid #323846;
+            color: #d4af37;
+            padding: 28px 24px 22px 24px;
+            border-bottom: 1px solid #2b3342;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .card-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #d4af37;
+        }
+
+        .card-header img {
+            height: 120px;
+            width: auto;
         }
 
         span {
-            color: #e2dfd2;
+            color: #e2e8f0;
         }
 
         .card-body {
@@ -101,16 +91,16 @@
             font-size: 0.95rem;
             font-family: 'Inter', sans-serif;
             color: #f1f5f9;
-            background-color: #181c24;
-            border: 1px solid #384152;
+            background-color: #14171f;
+            border: 1px solid #323c50;
             border-radius: 8px;
             outline: none;
             transition: all 0.2s ease;
         }
 
         .form-control:focus {
-            background-color: #222733;
-            border-color: #e2dfd2;
+            background-color: #1c212c;
+            border-color: #d4af37;
         }
 
         .form-control::placeholder {
@@ -142,52 +132,43 @@
         }
 
         .btn-info {
-            background-color: #384152;
-            color: #e2dfd2;
+            background-color: #2b3342;
+            color: #f1f5f9;
         }
 
         .btn-info:hover {
-            background-color: #475266;
+            background-color: #3b455c;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#">
-            <img src="img/help-desk-logo-cemiterio.png" alt="Logo Cemitério">
-        </a>
-        <h1>Cemitério Memorial — Portal</h1>
-    </nav>
-
     <div class="container">
         <div class="row">
-            <div class="card-login">
-                <div class="card">
-                    <div class="card-header">
-                        Acesso ao <span>Memorial</span>
-                    </div>
-                    <div class="card-body">
-                        
-                        <form action="valida_login.php" method="POST">
-                            <div class="form-group">
-                                <input name="email" type="email" class="form-control" placeholder="E-mail de acesso" required>
-                            </div>
-                            <div class="form-group">
-                                <input name="senha" type="password" class="form-control" placeholder="Senha" required>
-                            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="img/help-desk-logo.png" alt="Logo Cemitério">
+                    <h1>Acesso ao <span>Portal</span></h1>
+                </div>
+                <div class="card-body">
+                    <form action="valida_login.php" method="GET">
+                        <div class="form-group">
+                            <input name="email" type="email" class="form-control" placeholder="E-mail de acesso" required>
+                        </div>
+                        <div class="form-group">
+                            <input name="senha" type="password" class="form-control" placeholder="Senha" required>
+                        </div>
 
-                            <?php if (isset($_GET['login']) && $_GET['login'] === 'erro') { ?>
-                                <div class="text-danger">Credenciais inválidas no registro!</div>
-                            <?php } ?>
+                        <?php if (isset($_GET['login']) && $_GET['login'] === 'erro') { ?>
+                            <div class="text-danger">Credenciais inválidas no registro!</div>
+                        <?php } ?>
 
-                            <?php if (isset($_GET['login']) && $_GET['login'] === 'erro2') { ?>
-                                <div class="text-danger">Identificação necessária para prosseguir.</div>
-                            <?php } ?>
+                        <?php if (isset($_GET['login']) && $_GET['login'] === 'erro2') { ?>
+                            <div class="text-danger">Identificação necessária para prosseguir.</div>
+                        <?php } ?>
 
-                            <button class="btn btn-lg btn-info btn-block" type="submit">Entrar no Sistema</button>
-                        </form>
-                    </div>
+                        <button class="btn btn-info" type="submit">Entrar no Sistema</button>
+                    </form>
                 </div>
             </div>
         </div>

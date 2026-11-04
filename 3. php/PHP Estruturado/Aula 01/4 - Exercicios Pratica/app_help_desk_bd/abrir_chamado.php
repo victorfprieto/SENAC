@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #181c24;
+            background-color: #14171f;
             color: #94a3b8;
             min-height: 100vh;
             display: flex;
@@ -28,8 +28,8 @@
         }
 
         nav {
-            background-color: #222733;
-            border-bottom: 1px solid #323846;
+            background-color: #1c212c;
+            border-bottom: 1px solid #2b3342;
             padding: 16px 32px;
             display: flex;
             align-items: center;
@@ -39,12 +39,12 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-decoration: none;
         }
 
         nav img {
-            height: 36px;
+            height: 42px;
             width: auto;
         }
 
@@ -53,7 +53,8 @@
             font-size: 18px;
             letter-spacing: 1px;
             font-weight: 600;
-            color: #e2dfd2;
+            margin-left: 8px;
+            color: #d4af37;
         }
 
         .nav-brand-group {
@@ -80,8 +81,8 @@
         }
 
         .nav-link:hover {
-            color: #e2dfd2;
-            background-color: #323846;
+            color: #d4af37;
+            background-color: #2b3342;
         }
 
         .container {
@@ -98,22 +99,32 @@
         }
 
         .card {
-            background-color: #222733;
-            border: 1px solid #323846;
+            background-color: #1c212c;
+            border: 1px solid #2b3342;
             border-radius: 12px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
             overflow: hidden;
         }
 
         .card-header {
-            background-color: #222733;
+            background-color: #1c212c;
             text-align: center;
             font-family: 'Cinzel', serif;
             font-size: 1.25rem;
             font-weight: 600;
-            color: #e2dfd2;
+            color: #d4af37;
             padding: 24px;
-            border-bottom: 1px solid #323846;
+            border-bottom: 1px solid #2b3342;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .card-header img {
+            height: 75px;
+            width: auto;
         }
 
         .card-body {
@@ -138,16 +149,16 @@
             font-size: 0.95rem;
             font-family: 'Inter', sans-serif;
             color: #f1f5f9;
-            background-color: #181c24;
-            border: 1px solid #384152;
+            background-color: #14171f;
+            border: 1px solid #323c50;
             border-radius: 8px;
             outline: none;
             transition: all 0.2s ease;
         }
 
         .form-control:focus {
-            background-color: #222733;
-            border-color: #e2dfd2;
+            background-color: #1c212c;
+            border-color: #d4af37;
         }
 
         textarea.form-control {
@@ -177,21 +188,21 @@
         }
 
         .btn-warning {
-            background-color: #323846;
-            color: #e2dfd2;
+            background-color: #2b3342;
+            color: #e2e8f0;
         }
 
         .btn-warning:hover {
-            background-color: #3f4758;
+            background-color: #3b455c;
         }
 
         .btn-info {
-            background-color: #384152;
+            background-color: #3b455c;
             color: #ffffff;
         }
 
         .btn-info:hover {
-            background-color: #475266;
+            background-color: #4b556f;
         }
     </style>
 </head>
@@ -200,14 +211,14 @@
     <nav>
         <div class="nav-brand-group">
             <a href="home.php" class="nav-brand">
-                <img src="img/help-desk-logo-cemiterio.png" alt="Logo Cemitério">
+                <img src="img/help-desk-logo.png" alt="Logo Cemitério">
             </a>
             <h1>Cemitério Memorial</h1>
         </div>
 
         <ul class="navbar-nav">
-            <li class="item" style="color: #e2dfd2; font-size: 0.95rem; font-weight: 500;">
-                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>
+            <li class="item" style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">
+                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>[cite: 1]
             </li>
             <li class="item">
                 <a href="logoff.php" class="nav-link">Sair</a>
@@ -219,7 +230,8 @@
         <div class="row">
             <div class="card">
                 <div class="card-header">
-                    Abertura de Solicitação
+                    <img src="img/help-desk-logo.png" alt="Logo Cemitério">
+                    <span>Abertura de Solicitação</span>
                     <?php if (isset($_GET['cadastro']) && $_GET['cadastro'] === 'efetuado') { ?>
                         <script>
                             alert('Solicitação cadastrada com sucesso!');

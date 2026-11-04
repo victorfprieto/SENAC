@@ -3,7 +3,7 @@
 
     $chamados = [];
 
-    $arquivo = fopen('../../../../../app_help_desk_sec/registros.hd', 'r');  
+    $arquivo = fopen('../../app_help_desk_sec/registros.hd', 'r');  
 
     while(!feof($arquivo)){
         $registro = fgets($arquivo);
@@ -31,7 +31,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #181c24;
+            background-color: #14171f;
             color: #94a3b8;
             min-height: 100vh;
             display: flex;
@@ -39,8 +39,8 @@
         }
 
         nav {
-            background-color: #222733;
-            border-bottom: 1px solid #323846;
+            background-color: #1c212c;
+            border-bottom: 1px solid #2b3342;
             padding: 16px 32px;
             display: flex;
             align-items: center;
@@ -50,12 +50,12 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-decoration: none;
         }
 
         nav img {
-            height: 36px;
+            height: 42px;
             width: auto;
         }
 
@@ -64,7 +64,8 @@
             font-size: 18px;
             letter-spacing: 1px;
             font-weight: 600;
-            color: #e2dfd2;
+            margin-left: 8px;
+            color: #d4af37;
         }
 
         .nav-brand-group {
@@ -91,8 +92,8 @@
         }
 
         .nav-link:hover {
-            color: #e2dfd2;
-            background-color: #323846;
+            color: #d4af37;
+            background-color: #2b3342;
         }
 
         .container {
@@ -109,8 +110,8 @@
         }
 
         .card {
-            background-color: #222733;
-            border: 1px solid #323846;
+            background-color: #1c212c;
+            border: 1px solid #2b3342;
             border-radius: 12px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
             overflow: hidden;
@@ -118,14 +119,14 @@
         }
 
         .card-header {
-            background-color: #222733;
+            background-color: #1c212c;
             text-align: center;
             font-family: 'Cinzel', serif;
             font-size: 1.25rem;
             font-weight: 600;
-            color: #e2dfd2;
+            color: #d4af37;
             padding: 24px;
-            border-bottom: 1px solid #323846;
+            border-bottom: 1px solid #2b3342;
         }
 
         .card-body {
@@ -133,8 +134,8 @@
         }
 
         .ticket-card {
-            background-color: #181c24;
-            border: 1px solid #384152;
+            background-color: #14171f;
+            border: 1px solid #323c50;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 16px;
@@ -143,12 +144,12 @@
         .ticket-title {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #e2dfd2;
+            color: #e2e8f0;
             margin-bottom: 6px;
         }
 
         .ticket-user {
-            color: #94a3b8;
+            color: #d4af37;
             font-size: 0.85rem;
             font-weight: bolder;
             margin-bottom: 4px;
@@ -157,7 +158,7 @@
         .ticket-category {
             font-size: 0.9rem;
             font-weight: 500;
-            color: #cbd5e1;
+            color: #94a3b8;
             margin-bottom: 12px;
         }
 
@@ -183,12 +184,12 @@
         }
 
         .btn-warning {
-            background-color: #323846;
-            color: #e2dfd2;
+            background-color: #2b3342;
+            color: #e2e8f0;
         }
 
         .btn-warning:hover {
-            background-color: #3f4758;
+            background-color: #3b455c;
         }
     </style>
 </head>
@@ -197,14 +198,14 @@
     <nav>
         <div class="nav-brand-group">
             <a href="home.php" class="nav-brand">
-                <img src="img/help-desk-logo-cemiterio.png" alt="Logo Cemitério">
+                <img src="img/help-desk-logo.png" alt="Logo Cemitério">
             </a>
             <h1>Cemitério Memorial</h1>
         </div>
 
         <ul class="navbar-nav">
-            <li class="item" style="color: #e2dfd2; font-size: 0.95rem; font-weight: 500;">
-                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>
+            <li class="item" style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">
+                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>[cite: 2]
             </li>
             <li class="item">
                 <a href="logoff.php" class="nav-link">Sair</a>
@@ -223,8 +224,8 @@
                     
                     <?php foreach($chamados as $chamado){ ?>
 
-                        <?> 
-                            $chamado_dados = explode('|', $chamado);  
+                        <?php 
+                            $chamado_dados = explode('|', $chamado); [cite: 2]
 
                             if(count($chamado_dados) < 6){
                                 continue; 

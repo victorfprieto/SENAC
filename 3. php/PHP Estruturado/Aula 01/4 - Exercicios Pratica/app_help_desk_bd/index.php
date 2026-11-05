@@ -148,7 +148,7 @@
             <div class="card">
                 <div class="card-header">
                     <img src="img/help-desk-logo.png" alt="Logo Cemitério">
-                    <h1>Acesso ao <span>Portal</span></h1>
+                    <h1>Acesso ao <span>Memorialis</span></h1>
                 </div>
                 <div class="card-body">
                     <form action="valida_login.php" method="GET">

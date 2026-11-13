@@ -107,6 +107,25 @@
             color: #64748b;
         }
 
+        .register-prompt {
+            text-align: right;
+            margin-top: -6px;
+            margin-bottom: 18px;
+            font-size: 0.85rem;
+        }
+
+        .register-prompt a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .register-prompt a:hover {
+            color: #f3d060;
+            text-decoration: underline;
+        }
+
         .text-danger {
             background-color: rgba(239, 68, 68, 0.1);
             color: #f87171;
@@ -159,6 +178,10 @@
                             <input name="senha" type="password" class="form-control" placeholder="Senha" required>
                         </div>
 
+                        <div class="register-prompt">
+                            <a href="cadastro.php">Cadastre-se aqui</a>
+                        </div>
+
                         <?php if (isset($_GET['login']) && $_GET['login'] === 'erro') { ?>
                             <div class="text-danger">Credenciais inválidas no registro!</div>
                         <?php } ?>
@@ -173,6 +196,5 @@
             </div>
         </div>
     </div>
-    
 </body>
 </html>

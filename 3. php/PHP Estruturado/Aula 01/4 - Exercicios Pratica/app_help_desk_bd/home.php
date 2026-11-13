@@ -1,5 +1,5 @@
 <?php 
-    require_once "validador_acesso.php";
+    require "valida_acesso.php";
 ?>
 
 <!DOCTYPE html>
@@ -158,7 +158,7 @@
 
         <ul class="navbar-nav" style="display: flex; align-items: center; gap: 20px;">
             <li class="item" style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">
-                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>[cite: 3]
+                Bem-vindo, <strong><?php echo $_SESSION['nome']; ?></strong>
             </li>
             <li class="item">
                 <a href="logoff.php" class="nav-link">Encerrar Sessão</a>

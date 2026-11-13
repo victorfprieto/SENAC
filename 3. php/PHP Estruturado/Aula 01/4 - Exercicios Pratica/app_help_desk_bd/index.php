@@ -151,7 +151,7 @@
                     <h1>Acesso ao <span>Memorialis</span></h1>
                 </div>
                 <div class="card-body">
-                    <form action="/app_help_desk_bd_sec/valida_login.php" method="POST">
+                    <form action="valida_login.php" method="POST">
                         <div class="form-group">
                             <input name="email" type="email" class="form-control" placeholder="E-mail de acesso" required>
                         </div>
@@ -173,5 +173,6 @@
             </div>
         </div>
     </div>
+    
 </body>
 </html>
